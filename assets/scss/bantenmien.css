@@ -1,0 +1,160 @@
+.title-sell-domain-names {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.title-sell-domain-names h1 {
+    color: #fff;
+    font-size: 29px;
+}
+
+.title-sell-domain-names p {
+    max-width: 90%;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.info-sell-domain-names {
+    padding: 30px;
+}
+button.btn-sell-domain-names {
+    margin: 30px auto 0;
+    display: table;
+    background: #058ffe;
+    color: #fff;
+    border: 0;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 30px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.info-sell-domain-names .form-group input {
+    height: 42px;
+}
+
+.info-sell-domain-names .form-group select {
+    height: 42px;
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    color: #495057;
+}
+.info-sell-domain-names .form-group label {
+    color: #058ffe;
+    font-weight: 500;
+    font-size: 14px;
+}
+.info-sell-domain-names .row>div:nth-child(2), .info-sell-domain-names .row>div:nth-child(3), .info-sell-domain-names .row>div:nth-child(4) {
+    flex: 0 0 20.666667%;
+    max-width: 20.666667%;
+}
+
+.info-sell-domain-names .row>div:last-child {
+    flex: 0 0 4.666667%;
+    max-width: 4.666667%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+.info-sell-domain-names .form-group {
+    margin-bottom: 0;
+}
+.item-details-domain-names.details-domain-names-left .info-details-domain-names {
+    padding: 20px;
+    font-size: 13px;
+}
+
+.info-details-domain-names p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.info-details-domain-names p.name strong {
+    color: #038ffe;
+    font-size: 20px;
+}
+
+.btn-update-information-follow>div {
+    float: left;
+    margin-right: 15px;
+}
+
+.btn-update-information-follow>div>a {
+    display: inline-block;
+    height: 42px;
+    line-height: 42px;
+    border: 1px solid #038ffe;
+    padding: 0 25px;
+    border-radius: 7px;
+    font-weight: 500;
+}
+
+.btn-update-information-follow {
+    margin: 0 20px 20px;
+    display: inline-block;
+}
+
+.btn-update-information-follow .btn-update-information a {
+    background: #038ffe;
+    color: #fff;
+}
+.item-details-domain-names.details-domain-names-right {
+    height: 100%;
+}
+.title-item-details-domain-names {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.session-comment .item-comment .info-comment {
+    background: #fff;
+    position: relative;
+    border-radius: 10px;
+}
+
+.session-comment .item-comment .info-comment .comment-input {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.session-comment .item-comment .info-comment .comment-input button.btn.btn-submit {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: #038ffe;
+    padding: 0 30px;
+    height: 42px;
+    line-height: 42px;
+    color: #fff;
+}
+
+.item-comment .info-comment .comment-input .form-group {
+    margin-bottom: 0;
+}
+
+.item-comment .info-comment .comment-input .form-group input {
+    height: 58px;
+    border: 0;
+    border-top: 1px solid #f4f4f4;
+    border-radius: 0;
+    padding-left: 20px;
+}
+.title-comment {
+    color: #038ffe;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.content-comment {
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+.session-comment {
+    padding-bottom: 70px;
+}

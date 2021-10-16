@@ -1,0 +1,319 @@
+.search-domain {
+    padding: 40px 0;
+}
+
+.search-domain .title-search-domain {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.search-domain .title-search-domain h1 {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.search-domain .title-search-domain p {
+    color: #fff;
+}
+.input-search-domain .row, .info-sell-domain-names .row {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.input-search-domain .row>div, .info-sell-domain-names .row>div {
+    padding: 0 5px;
+}
+.input-search-domain .form-group select {
+    height: 56px;
+}
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    color: #495057;
+}
+.input-search-domain .form-group input {
+    height: 56px;
+}
+.input-search-domain .btn-submit {
+    width: 100%;
+    background: #058ffe;
+    height: 56px;
+    color: #fff;
+}
+.input-search-domain .form-group {
+    margin-bottom: 0;
+}
+
+@media (min-width:992px){
+    .input-search-domain .row>div:nth-child(1) {
+        flex: 0 0 34%;
+        max-width: 34%;
+    }
+    .input-search-domain .row>div:nth-child(2) {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .input-search-domain .row>div:nth-child(3) {
+        flex: 0 0 13%;
+        max-width: 13%;
+    }
+
+    .input-search-domain .row>div:nth-child(4) {
+        flex: 0 0 18%;
+        max-width: 18%;
+    }
+
+    .input-search-domain .row>div:nth-child(5) {
+        flex: 0 0 15%;
+        max-width: 15%;
+    }
+    .session-career-domain>.container>.row>div:nth-child(1) {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .session-career-domain>.container>.row>div:nth-child(2) {
+        flex: 0 0 80%;
+        max-width: 80%;
+    }
+}
+
+.item-career-left {
+    background: #fff;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+    border-radius: 10px;
+    overflow: hidden;
+    height: calc(100% - 48px);
+}
+
+.item-career-left .title-career {
+    padding: 15px 0;
+    text-align: center;
+    background: #058ffe;
+    color: #fff;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.info-career {
+    padding: 5px 10px;
+}
+.info-career .form-check {
+    margin: 10px 0;
+}
+
+.domain-names-are-for-sale, .iten-sell-domain-names, .table-sell-domain-names {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+}
+
+.domain-names-are-for-sale .item-top-domain-names, .title-sell-domain-names {
+    background: #058ffe;
+    padding: 15px;
+}
+
+.domain-names-are-for-sale .title-left-domain-names {
+    color: #fff;
+}
+
+.title-left-domain-names h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.title-left-domain-names p {
+    margin-bottom: 0;
+}
+
+.domain-names-are-for-sale .item-top-domain-names>row {
+    display: flex;
+    align-items: center;
+}
+
+.domain-names-are-for-sale .item-top-domain-names>.row {
+    display: flex;
+    align-items: center;
+}
+
+.domain-names-are-for-sale .item-top-domain-names>.row>div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.domain-names-are-for-sale .btn-submit.domain-names {
+    height: 36px;
+    line-height: 36px;
+    background: #003CB5;
+    padding: 0 20px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+
+.domain-names-are-for-sale .btn-submit.domain-names a {
+    color: #fff;
+    display: inline-block;
+}
+
+.item-mid-domain-names .table {
+    font-size: 15px;
+}
+
+.item-mid-domain-names .table thead {
+    background: #003cb5;
+}
+
+.item-mid-domain-names .table thead>tr>th {
+    border: 0;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: center;
+    color: #fff;
+}
+
+.btn-link.btn-view {
+    background: #003cb5;
+    color: #fff;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+.item-mid-domain-names tbody>tr>td:last-child {
+    padding: 5px;
+}
+
+
+.item-mid-domain-names .table {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.item-mid-domain-names .table thead {
+    background: #003cb5;
+}
+
+.item-mid-domain-names .table thead>tr>th {
+    border: 0;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+
+.btn-link.btn-view {
+    background: #003cb5;
+    color: #fff;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+.item-mid-domain-names tbody>tr>td:last-child {
+    padding: 5px;
+}
+
+.item-mid-domain-names tbody>tr>td {
+    padding: 5px 10px;
+    vertical-align: middle !important;
+    border: 0;
+}
+
+.item-mid-domain-names tbody>tr:nth-child(2n+1) {
+    background: #f8f8f8;
+}
+
+.item-mid-domain-names tbody>tr>td {text-align: center;}
+
+.item-mid-domain-names tbody>tr>td:first-child {
+    text-align: left;
+}
+
+.item-mid-domain-names tbody>tr>td:first-child svg {
+    margin-right: 5px;
+}
+.next-prev {
+    margin-top: 20px;
+}
+
+.next-prev>ul>li {
+    list-style: none;
+    margin: 0 5px;
+}
+
+.next-prev>ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item-career-left .tag {
+    padding: 10px;
+}
+.next-prev>ul>li>a {
+    width: 25px;
+    height: 25px;
+    line-height: 27px;
+    padding: 0;
+    color: #263238;
+    text-align: center;
+    border-radius: 50% !important;
+    background: #e1e1e1;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.next-prev>ul>li.prev>a, .next-prev>ul>li.next>a {
+    font-size: 21px;
+    background: none;
+}
+
+.next-prev>ul>li.active>a {
+    background: #003cb5;
+    color: #fff;
+}
+.session-career-domain>.container>.row {
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.session-career-domain>.container>.row>div {
+    padding: 0 10px;
+}
+.table-sell-domain-names .table thead {
+    background: #038ffe;
+}
+
+.table-sell-domain-names .table thead>tr>th {
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 15px 5px;
+}
+
+.table-sell-domain-names .table tbody tr>td {
+    font-size: 12px;
+}
+.table-sell-domain-names .table tbody tr>td>a {
+    background: #D6EDFF;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 5px;
+    color: #002f8a;
+}
+.table-sell-domain-names {
+    margin-bottom: 25px;
+}
+.bottom-sell-domain-names p {
+    font-size: 14px;
+    color: #001f5a;
+}
