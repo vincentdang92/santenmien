@@ -3,10 +3,12 @@
         <div class="header-top">
             <b-container>
                 <b-row>
-                    <b-col col sm="3">
-                        <b-img src="@/assets/images/logo.png" fluid-grow alt="Logo"></b-img>
+                    <b-col  sm="3">
+						<nuxt-link to="/">
+							<b-img src="@/assets/images/logo.png" fluid-grow alt="Logo"></b-img>
+						</nuxt-link>
                     </b-col>
-                    <b-col col sm="9">
+                    <b-col  sm="9">
                         <div class="menu-top">
 							<ul>
 								<li>
@@ -74,16 +76,17 @@
 						    </button>
 				            <ul class="nav-list">
 				                 <li class="nav-list-item">
-				                  <a href="Home.html" class="nav-link">Trang chủ</a>
+								  <nuxt-link to="/" class="nav-link">Trang chủ</nuxt-link>
 				              	</li>
 				                <li class="nav-list-item">
-				                  <a href="tenmienraoban.html" class="nav-link">Tên miền đang bán</a>
+									<nuxt-link class="nav-link" to="/tim-kiem-ten-mien.html">Tìm tên miền</nuxt-link>
 				              	</li>
 				                <li class="nav-list-item">
-				                  <a href="muatenmien.html" class="nav-link">Tên miền muốn mua</a>
+				                  <nuxt-link class="nav-link" to="/mua-ten-mien.html">Mua tên miền</nuxt-link>
 				              	</li>
 				                <li class="nav-list-item">
-				                    <a href="bantenmien.html" class="nav-link">Cho thuê tên miền Website</a>
+				                    
+									<nuxt-link class="nav-link" to="/ban-ten-mien.html">Bán tên miền</nuxt-link>
 				                </li>
 				                <li class="nav-list-item">
 				                  <a href="" class="nav-link">Chính sách</a>

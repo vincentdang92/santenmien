@@ -1,0 +1,28 @@
+.form_normal{
+    .form-group{
+        select{
+            height: 56px;
+        }
+        input{
+            height: 56px;
+        }
+    }
+}
+.info-career{
+    .custom-checkbox {
+        margin-bottom: 10px;
+    }
+}
+.header-menu{
+    .nav-link{
+        transition: all .3s ease-in-out;
+        &:hover{
+            background: #fff;
+            color: #003CB5 !important;
+        }
+    }
+    .nuxt-link-exact-active {
+        background: #fff;
+        color: #003CB5 !important;
+    }
+}

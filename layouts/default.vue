@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import TheHeader from '@/components/Header';
-import TheFooter from '@/components/Footer';
+import TheHeader from '@/components/TheHeader';
+import TheFooter from '@/components/TheFooter';
 export default {
     components:{
         TheHeader,

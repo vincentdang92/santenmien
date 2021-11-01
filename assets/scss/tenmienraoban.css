@@ -112,6 +112,8 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .domain-names-are-for-sale .item-top-domain-names, .title-sell-domain-names {
@@ -164,6 +166,7 @@
 
 .item-mid-domain-names .table {
     font-size: 15px;
+
 }
 
 .item-mid-domain-names .table thead {
@@ -195,8 +198,16 @@
 .item-mid-domain-names .table {
     font-size: 15px;
     margin-bottom: 10px;
+    background-color: #fff;
+}
+.custom_paging {
+   
+    padding: 10px 0;
 }
 
+.custom_paging .pagination {
+    justify-content: center;
+}
 .item-mid-domain-names .table thead {
     background: #003cb5;
 }
