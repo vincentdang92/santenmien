@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        auth
+        
     </div>
 </template>
 <script>
