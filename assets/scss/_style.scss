@@ -30,3 +30,18 @@
         color: #003CB5 !important;
     }
 }
+.border_opacity{
+    border: 2px solid rgba(255, 255, 255, 0.432);
+}
+.c_b_s{
+    transition: all .3s ease-in-out;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important;
+}
+.c_b_s:hover{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
+}
+
+.btn_search {
+    min-width: 150px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}

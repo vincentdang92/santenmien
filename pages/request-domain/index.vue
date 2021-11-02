@@ -200,7 +200,7 @@ import RangeSlider from '@vueform/slider/dist/slider.vue2.js';
 Vue.use(RangeSlider);
 
 export default {
-    //middleware: 'auth',
+    middleware: 'router-auth',
     components: { RangeSlider },
     data() {
       return {

@@ -51,13 +51,13 @@
 								  <nuxt-link to="/" class="nav-link">Trang chủ</nuxt-link>
 				              	</li>
 				                <li class="nav-list-item">
-									<nuxt-link class="nav-link" to="/tim-kiem-ten-mien.html">Tên miền đang bán</nuxt-link>
+									<nuxt-link class="nav-link" to="/ten-mien-rao-ban.html">Tên miền rao bán</nuxt-link>
 				              	</li>
 				                <li class="nav-list-item">
 				                  <nuxt-link class="nav-link" to="/mua-ten-mien.html">Tên miền muốn mua</nuxt-link>
 				              	</li>
 				                <li class="nav-list-item">
-									<nuxt-link class="nav-link" to="/ban-ten-mien.html">Cho thuê tên miền</nuxt-link>
+									<a class="nav-link" style="cursor:pointer">Cho thuê tên miền</a>
 				                </li>
 				                <li class="nav-list-item">
 				                  <a href="" class="nav-link">Chính sách</a>

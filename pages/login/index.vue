@@ -1,6 +1,8 @@
 <template lang="">
-    <div>
-        Login
+    <div id="main">
+        <b-container>
+            
+        </b-container>
     </div>
 </template>
 <script>

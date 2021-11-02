@@ -10,8 +10,8 @@
 						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque…
 					</p>
 				</div>
-                <div class="input-search-domain">
-                    <b-form >
+                <div class="">
+                    <b-form class="form_normal">
                         <b-row>
                             <b-col lg="4" sm="6" cols="12">
                                 <b-form-group>
@@ -23,19 +23,29 @@
                                     <b-form-select @change="onChangeCareer" v-model="selected_career" :options="option_career"></b-form-select>
                                 </b-form-group>
                             </b-col>
-                            <b-col lg="1" sm="3" cols="12">
+                            <b-col lg="2" sm="6" cols="12">
                                 <b-form-group>
                                     <b-form-select @change="onChangeExtend" v-model="selected_extend" :options="option_extend"></b-form-select>
                                 </b-form-group>
                             </b-col>
-                            <b-col lg="2" sm="7" cols="12">
-                                <b-form-group>
-                                    <b-form-select @change="onChangeExtend" v-model="selected_extend" :options="option_extend"></b-form-select>
+                            <b-col lg="4" sm="7" cols="12" >
+                                <div class="domain_lenght">
+                                  <b-form-group label="Độ dài tên miền">
+                                    <RangeSlider
+                                        
+                                        v-model="range_slider_value"
+                                        :min="1"
+                                        :max="60"
+                                        :step="2"
+                                        
+                                        class="slider-blue"
+                                    />
                                 </b-form-group>
+                                </div>
                             </b-col>
-                            <b-col lg="2" sm="2" cols="12">
+                            <b-col class="text-center" lg="12" sm="12" cols="12">
                                 <b-form-group>
-                                    <b-button class="btn btn-submit" variant="primary">  Tìm kiếm</b-button>
+                                    <b-button class="btn btn-submit btn_search c_b_s" variant="primary"><b-icon icon="search"></b-icon>  Tìm kiếm</b-button>
                                 </b-form-group>
                             </b-col>
                             
@@ -87,10 +97,9 @@
 										</div>
                                     </b-col>
                                     <b-col  sm="6" xs="12">
-                                        <div class="btn-submit domain-names">
-											<a href="">
-												Đăng bán tên miền
-											</a>
+                                        <div class="btn-submit domain-names c_b_s">
+											
+                      <nuxt-link class="" to="/dang-ban-ten-mien.html">Đăng bán tên miền</nuxt-link>
 										</div>
                                     </b-col>
                                     
@@ -246,8 +255,13 @@
     </div>
 </template>
 <script>
-
+    import Vue from 'vue';
+    import RangeSlider from '@vueform/slider/dist/slider.vue2.js';
+    Vue.use(RangeSlider);  
   export default {
+    components:{
+        RangeSlider
+    },
     computed: {
       state() {
         return this.domain_name.length >= 4
@@ -259,24 +273,29 @@
     },
     data() {
       return {
+        range_slider_value: [1,60],
+        
         perPage: 3,
         currentPage: 1,
         domain_name: '',
         filter_selected:[],
         selected_career: null,
-        selected_extend: "COM",
+        selected_extend: null,
         option_career: [
-          { value: null, text: 'Ngành nghề' },
+          { value: null, text: 'Chọn lĩnh vực' },
           { value: 1, text: 'Bất động sản' },
           { value: 2, text: 'Công nghệ' },
 
         ],
         option_extend: [
+          { value: null, text: 'Đuôi tên miền' },
           { value: "COM", text: '.com' },
           { value: "VN", text: '.vn' },
 
         ],
+
         option_filter:[
+            
             { text: 'Bất động sản', value: 'BDS' },
             { text: 'Công nghệ', value: 'TECH' },
             { text: 'Tài chính', value: 'FINANCE' },
@@ -324,6 +343,27 @@
     }
   }
 </script>
-<style lang="">
-    
+<style lang="scss">
+    .slider-blue {
+        --slider-connect-bg: #3B82F6;
+        --slider-tooltip-bg: #3B82F6;
+        --slider-handle-ring-color: #3B82F630;
+    }
+    .domain_lenght legend {
+        margin-top: -20px !important;
+        display: block;
+        margin-bottom: 13px;
+        text-align: center;
+    }
+
+    .domain_lenght {
+        background: #fff;
+        border-radius: 3px;
+        height: 56px;
+        padding: 0 16px;
+    }
+
+    .domain_lenght fieldset {
+        margin: 0 !important;
+    }
 </style>
