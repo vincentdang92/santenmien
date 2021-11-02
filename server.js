@@ -6,6 +6,8 @@ const fs = require( 'fs' );
 let server;
 const isProd = ( process.env.NODE_ENV === 'production' );
 const port = process.env.PORT || 3000;
+
+console.log(process.env.NODE_ENV,'NODE_ENV');
 // Prepare for HTTP or HTTPS
 if ( process.env.NODE_ENV === 'production' ) {
   const privateKey = fs.readFileSync('/etc/letsencrypt/live/santenmien.nhanhoa.com/privkey.pem', 'utf8');

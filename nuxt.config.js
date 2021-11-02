@@ -38,18 +38,18 @@ module.exports =  {
   router: {
     extendRoutes(routes, resolve) {
       routes.push({
-        name: 'find-domain-custom',
-        path: '/tim-kiem-ten-mien.html',
-        component: resolve(__dirname, 'pages/find-domain/index.vue')
+        name: 'domain-for-sale-custom',
+        path: '/ten-mien-rao-ban.html',
+        component: resolve(__dirname, 'pages/domain-for-sale/index.vue')
       });
       routes.push({
-        name: 'buy-domain-custom',
+        name: 'request-domain-custom',
         path: '/mua-ten-mien.html',
-        component: resolve(__dirname, 'pages/buy-domain/index.vue')
+        component: resolve(__dirname, 'pages/request-domain/index.vue')
       });
       routes.push({
         name: 'sell-domain-custom',
-        path: '/ban-ten-mien.html',
+        path: '/dang-ban-ten-mien.html',
         component: resolve(__dirname, 'pages/sell-domain/index.vue')
       });
       
@@ -64,8 +64,8 @@ module.exports =  {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/auth-next'
-    
+    // '@nuxtjs/auth-next'
+    'cookie-universal-nuxt',
     
   ],
 
@@ -78,6 +78,7 @@ module.exports =  {
       lang: 'en'
     }
   },
+  
   serverMiddleware: [
     
     redirectSSL.create({
@@ -85,6 +86,23 @@ module.exports =  {
      }),
 
   ],
+  // auth: {
+    
+  //   strategies: {
+  //     local: {
+  //       scheme: 'refresh',
+        
+  //       endpoints: {
+  //         login: { url: 'https://id.nhanhoa', method: 'post' },
+  //         refresh: false,
+  //         user: false,
+  //         logout: false
+  //       },
+  //       // autoLogout: false
+  //     }
+  //   },
+    
+  // },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [ '@vueform/slider'],
