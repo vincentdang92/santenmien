@@ -567,8 +567,8 @@ td.dropdown.show {
 }
 
 .btn:hover {
-    text-decoration: none;
-    border: 0;
+    /* text-decoration: none;
+    border: 0; */
 }
 .item-accordion-faq button.btn.btn-link:focus {
     border: 0;
@@ -598,9 +598,9 @@ td.dropdown.show {
     color: #fff;
 }
 
-.btn {
+/* .btn {
     border: 0;
-}
+} */
 .item-accordion-faq button.btn.btn-link.collapsed:before {
     content: "\f067" !important;
     margin-right: 0px;

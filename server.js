@@ -8,15 +8,15 @@ const isProd = ( process.env.NODE_ENV === 'production' );
 const port = process.env.PORT || 3000;
 // Prepare for HTTP or HTTPS
 if ( process.env.NODE_ENV === 'production' ) {
-//   const privateKey = fs.readFileSync('/etc/letsencrypt/live/cus.websudo.xyz/privkey.pem', 'utf8');
-//   const certificate = fs.readFileSync('/etc/letsencrypt/live/cus.websudo.xyz/cert.pem', 'utf8');
-//   const ca = fs.readFileSync('/etc/letsencrypt/live/cus.websudo.xyz/chain.pem', 'utf8');
-//   const httpsOptions = {
-//     key: privateKey,
-//     cert: certificate,
-//     ca: ca
-//   }
-//   server = https.createServer(httpsOptions, app).listen(443, '103.159.51.130')
+  const privateKey = fs.readFileSync('/etc/letsencrypt/live/santenmien.nhanhoa.com/privkey.pem', 'utf8');
+  const certificate = fs.readFileSync('/etc/letsencrypt/live/santenmien.nhanhoa.com/cert.pem', 'utf8');
+  const ca = fs.readFileSync('/etc/letsencrypt/live/santenmien.nhanhoa.com/chain.pem', 'utf8');
+  const httpsOptions = {
+    key: privateKey,
+    cert: certificate,
+    ca: ca
+  }
+  server = https.createServer(httpsOptions, app).listen(443, '103.159.51.130')
   server1 = http.createServer(app).listen(80, '103.170.123.109')
 }
 // We instantiate nuxt.js with the options

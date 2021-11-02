@@ -51,7 +51,7 @@ button.btn-sell-domain-names {
     max-width: 20.666667%;
 }
 
-.info-sell-domain-names .row>div:last-child {
+.info-sell-domain-names .row.row_form>div:last-child {
     flex: 0 0 4.666667%;
     max-width: 4.666667%;
     display: flex;
