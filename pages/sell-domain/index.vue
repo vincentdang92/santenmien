@@ -12,7 +12,7 @@
 						</p>
 					</div>
                     <div class="info-sell-domain-names">
-                        <b-form>
+                        <b-form class="form_normal">
                             <b-row class="row_form">
                                 <b-col cols="12" lg="4" sm="4">
                                      <b-form-group
@@ -66,7 +66,7 @@
                                         ></b-form-input>
                                     </b-form-group>
                                 </b-col>
-                                <b-col cols="12" lg="2" sm="2">
+                                <b-col class="pb-0" cols="12" lg="2" sm="2">
                                     <div class="btn-add">
                                         <b-button @click.prevent="addDomain" ><b-icon  icon="plus-circle-fill" ></b-icon></b-button>
                                     </div>
@@ -238,10 +238,7 @@
     </div>
 </template>
 <script>
-import Vue from 'vue';
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
-Vue.use(BootstrapVue);
-Vue.use(BootstrapVueIcons);
+
 
 export default {
     computed: {

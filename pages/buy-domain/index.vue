@@ -77,7 +77,7 @@
                                          <p class="note">
                                             *Nên chọn giá tiền tối đa có thể chi trả để chủ thể tên miền dễ dàng giao dịch hơn.
                                         </p>
-                                        <b-button @click="submit" variant="primary"><b-icon icon="search" ></b-icon> Tìm mua tên miền</b-button>
+                                        <b-button  @click="submit" variant="primary"><b-icon icon="search" ></b-icon> Tìm mua tên miền</b-button>
                                     </b-col>
                                 </b-row>
                                
@@ -195,13 +195,10 @@
 </template>
 <script >
 import Vue from 'vue';
-import VueCompositionAPI from '@vue/composition-api';
-Vue.use(VueCompositionAPI);
+
 import RangeSlider from '@vueform/slider/dist/slider.vue2.js';
 Vue.use(RangeSlider);
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
-Vue.use(BootstrapVue);
-Vue.use(BootstrapVueIcons);
+
 export default {
     //middleware: 'auth',
     components: { RangeSlider },

@@ -1,3 +1,4 @@
+const redirectSSL =  require( 'redirect-ssl' );
 module.exports =  {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -24,7 +25,7 @@ module.exports =  {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    
+    '~/plugins/BootstrapIcon'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -77,7 +78,13 @@ module.exports =  {
       lang: 'en'
     }
   },
-  
+  serverMiddleware: [
+    
+    redirectSSL.create({
+      enabled: process.env.NODE_ENV === 'production'
+     }),
+
+  ],
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [ '@vueform/slider'],

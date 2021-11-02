@@ -127,11 +127,9 @@
                     </ul>
                   </div>
                   <div class="btn-seemore">
-                    <a href="">
+                    <a class="btn-primary" href="">
                       Xem thêm
-                      <svg xmlns="http://www.w3.org/2000/svg" width="11.805" height="7.873" viewBox="0 0 11.805 7.873">
-                        <path id="Icon_ionic-ios-arrow-round-back" data-name="Icon ionic-ios-arrow-round-back" d="M12.159,11.4a.536.536,0,0,1,0,.754l-2.489,2.5h9.484a.533.533,0,0,1,0,1.066H9.674l2.493,2.5a.54.54,0,0,1,0,.754.531.531,0,0,1-.75,0l-3.379-3.4h0a.6.6,0,0,1-.111-.168.509.509,0,0,1-.041-.205.534.534,0,0,1,.152-.373l3.379-3.4A.522.522,0,0,1,12.159,11.4Z" transform="translate(19.687 19.125) rotate(180)" fill="#fff"/>
-                      </svg>
+                      <b-icon icon="arrow-right"></b-icon>
                     </a>
                   </div>
 
@@ -252,11 +250,7 @@
 import Vue from 'vue';
 import { validationMixin } from "vuelidate";
 import { required, minLength } from "vuelidate/lib/validators";
-// import { BootstrapVueIcons } from 'bootstrap-vue';
-// import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css';
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
-Vue.use(BootstrapVue)
-Vue.use(BootstrapVueIcons)
+
 
 export default {
   mixins: [validationMixin],
