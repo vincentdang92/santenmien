@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "NODE_ENV=production node server.js",
+    "build": "nuxt build",
     "start": "NODE_ENV=production node server.js",
     "generate": "nuxt generate",
     "deploy": "pm2 deploy ecosystem.config.js production node server.js"
