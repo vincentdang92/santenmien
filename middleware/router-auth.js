@@ -4,9 +4,13 @@ export default function ({ app, redirect }) {
     console.log(cookieRes,'cookieRes');
     if(!cookieRes){
         app.$cookies.set('returnUrl','santenmien.nhanhoa.com',{
-            path: '/',
-            maxAge: 60 * 60 * 24 * 7
+            path:'/',
+            domain:'.nhanhoa.com',
+            maxAge: 60 * 60 * 24 * 7,
+            sameSite: 'strict'
+            
         });
+        
         redirect('https://id.nhanhoa.com/')
     }
   }

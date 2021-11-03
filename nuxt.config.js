@@ -65,7 +65,7 @@ module.exports =  {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // '@nuxtjs/auth-next'
-    'cookie-universal-nuxt',
+    ['cookie-universal-nuxt', { parseJSON: false }],
     
   ],
 
