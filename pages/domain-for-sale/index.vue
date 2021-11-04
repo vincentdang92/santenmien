@@ -106,30 +106,29 @@
                             </div>
                             <div class="item-mid-domain-names">
                                 <b-table :items="items" :fields="fields" responsive="xs" >
-                                    <!-- <template #thead-top="data">
-                                        <b-tr>
-                                            <b-th><span class="sr-only"></span>Tên miền</b-th>
-                                            <b-th><span class="sr-only"></span>Năm</b-th>
-                                            <b-th><span class="sr-only"></span>Backlink</b-th>
-                                            <b-th><span class="sr-only"></span>DA</b-th>
-                                            <b-th><span class="sr-only"></span>Ngày đăng</b-th>
-                                            <b-th><span class="sr-only"></span>Giá khởi điểm</b-th>
-                                            <b-th><span class="sr-only"></span>Giá mua ngay</b-th>
-                                            <b-th><span class="sr-only"></span>Hành động</b-th>
-                                            
-                                        </b-tr>
-                                    </template> -->
-                                    <template #cell(id)="data">
-                                        <!-- <b-button variant="primary" size="sm" class="mr-1">
-                                            
-                                        </b-button> -->
-                                        <nuxt-link class="btn btn-primary btn-sm text-white" :to="{ name: 'chi-tiet-ten-mien.html', params: { domainId: data.item.id }}"><b-icon icon="eye"></b-icon> chi tiết</nuxt-link>
+                                   
+                                    <template #cell(id)="row">
+                                        
+                                        <nuxt-link class="btn btn-primary btn-sm text-white" :to="{ name: 'chi-tiet-ten-mien.html', params: { domainId: row.item.id }}"><b-icon icon="eye"></b-icon> chi tiết</nuxt-link>
                                         
                                     </template>
-                                    <template #cell(domain)="data">
-                                      <b-icon icon="exclamation-circle-fill" variant="info"></b-icon> {{ data.value }} 
+                                   
+                                    <template #cell(domain)="row">
+                                        <b-button class="show_hide_detail" variant="default" size="sm" @click="row.toggleDetails">
+                                            <b-icon v-if="row.detailsShowing" icon="dash-square"></b-icon>
+                                            <b-icon v-if="!row.detailsShowing" icon="plus-square"></b-icon>
+                                        </b-button>
+                                       {{ row.item.domain }} 
+                                       
+                                        
                                     </template>
-                                
+                                    <template #row-details="row">
+                                        <b-card>
+                                        <ul>
+                                            <li v-for="(value, key) in row.item" :key="key">{{ key }}: {{ value }}</li>
+                                        </ul>
+                                        </b-card>
+                                    </template>
                                     
 
                                 </b-table>
@@ -220,15 +219,15 @@
             
         ],
         items: [
-          { domain: 'master-bo.com', year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000"  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000"  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000"  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000"  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000"  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000"  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000"  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000"  },
-          { id: 123123, domain: "123123.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000"  },
+          { domain: 'master-bo.com', year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.' },
+          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { id: 123123, domain: "123123.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
           
         ]
         
