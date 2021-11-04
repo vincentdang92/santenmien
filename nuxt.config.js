@@ -22,7 +22,9 @@ module.exports =  {
     '@/assets/scss/tenmienraoban.css',
     '@/assets/scss/_style.scss',
   ],
-
+  publicRuntimeConfig: {
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://santenmien.nhanhoa.com' : 'http://localhost:3000'
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/BootstrapIcon'
