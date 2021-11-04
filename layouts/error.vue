@@ -82,12 +82,12 @@ p.highlighted_path span {
   font-size: 165px;
   font-weight: 700;
   margin: 0px;
-  color: #262626;
+  color: #002F8A;
   text-transform: uppercase;
 }
 
 .notfound .notfound-404 h1>span {
-  color: #00b7ff;
+  color: #058FFE;
 }
 
 .notfound h2 {
