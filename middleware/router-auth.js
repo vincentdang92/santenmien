@@ -1,4 +1,4 @@
-export default function ({ app, redirect }) {
+export default function ({ app, redirect, store }) {
     
     const cookieRes = app.$cookies.get('userToken');
     console.log(cookieRes,'cookieRes');
@@ -12,5 +12,8 @@ export default function ({ app, redirect }) {
         });
         
         redirect('https://id.nhanhoa.com/')
+    }
+    else{
+        store.dispatch('auth/setToken',cookieRes);
     }
   }

@@ -45,7 +45,7 @@ dl, ol, ul {
     height: 42px;
     line-height: 39px;
     padding: 0 10px;
-    border-radius: 20px;
+    border-radius: 5px;
     border: 1px solid #fff0;
     margin-left: 25px;
     transition: all .3s ease-in-out;
@@ -303,7 +303,7 @@ dl, ol, ul {
     width: 135px;
     background: #038ffe;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 5px;
     line-height: 36px;
     color: #fff;
     transition: all .3s ease-in-out;

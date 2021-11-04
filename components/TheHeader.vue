@@ -9,22 +9,37 @@
 						</nuxt-link>
                     </b-col>
                     <b-col  sm="9">
-                        <div class="menu-top">
+                        <div class="btn-login">
 							<ul>
-								<li>
-									<a href="#">
-										Hỗ trợ
+								<li class="login  ">
+									<a class="c_b_s btn_support" href="#">
+									<b-icon icon="headset"></b-icon> Hỗ trợ
 									</a>
 								</li>
 							</ul>
 						</div>
 						<div class="btn-login">
 							<ul>
-								<li class="register">
-									<nuxt-link to="/dang-ky.html"><b-icon  icon="person-circle"></b-icon>  Đăng ký</nuxt-link>
+								<li v-if="!isAuthenticated" class="register">
+									<nuxt-link class="c_b_s" to="/dang-ky.html"><b-icon  icon="person-circle"></b-icon>  Đăng ký</nuxt-link>
 								</li>
-								<li class="login">
-									<nuxt-link to="/dang-ky.html"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</nuxt-link>
+								<li v-if="!isAuthenticated"  class="login">
+									<nuxt-link class="c_b_s" to="/dang-ky.html"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</nuxt-link>
+								</li>
+								
+								<li v-if="isAuthenticated">
+									<b-dropdown
+										split-variant="outline-primary"
+										variant="default"
+										class="m-2 authenticated_user"
+									>
+										<template #button-content>
+											<b-avatar badge  badge-variant="success" src="user.jpg"></b-avatar> Lê Thị Bé Na Na
+										</template>
+										<b-dropdown-item href="#"><b-icon icon="gear-fill"></b-icon> Thông tin cá nhân</b-dropdown-item>
+										<b-dropdown-item href="#" @click.prevent="logout"><b-icon variant="danger" icon="power"></b-icon> Đăng xuất</b-dropdown-item>
+										
+									</b-dropdown>
 								</li>
 							</ul>
 						</div>
@@ -76,7 +91,19 @@
 </template>
 <script>
 export default {
-    
+    computed:{
+		isAuthenticated() {
+			return this.$store.getters['auth/isAuthenticated']
+		}
+	},
+	methods:{
+		async logout() {
+			const doLogout = await this.$store.dispatch('auth/logout');
+			if(doLogout.status == 'success') {
+				this.$router.push('/');
+			}
+    	}
+	}
 }
 </script>
 <style lang="">
