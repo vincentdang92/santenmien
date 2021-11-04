@@ -52,6 +52,11 @@ module.exports =  {
         path: '/dang-ban-ten-mien.html',
         component: resolve(__dirname, 'pages/sell-domain/index.vue')
       });
+      routes.push({
+        name: 'chi-tiet-ten-mien.html',
+        path: '/chi-tiet-ten-mien.html',
+        component: resolve(__dirname, 'pages/domain-for-sale-detail/index.vue')
+      });
       
       
     }
@@ -78,7 +83,7 @@ module.exports =  {
       lang: 'en'
     }
   },
-  
+  middleware: ['user-agent'],
   serverMiddleware: [
     
     redirectSSL.create({
