@@ -13,7 +13,9 @@ module.exports =  {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  
+  server: {
+    port: 9999 // default: 3000
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/scss/home.css',
@@ -58,6 +60,11 @@ module.exports =  {
         name: 'chi-tiet-ten-mien.html',
         path: '/chi-tiet-ten-mien.html',
         component: resolve(__dirname, 'pages/domain-for-sale-detail/index.vue')
+      });
+      routes.push({
+        name: 'tai-khoan-custom',
+        path: '/tai-khoan.html',
+        component: resolve(__dirname, 'pages/accounts/index.vue')
       });
       
       

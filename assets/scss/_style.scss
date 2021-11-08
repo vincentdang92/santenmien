@@ -89,3 +89,79 @@
     min-width: 120px;
     text-align: center;
 }
+.tab_account{
+    border: 0;
+    background-color: transparent;
+    ul.nav{
+        background-color: #038ffe;
+        border-radius: 10px !important;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important; 
+        margin-right: 20px;
+        
+
+    }
+    .tab-content{
+        background-color: #fff;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important; 
+        border-radius: 10px !important;
+        
+        
+    }
+    .account_avatar{
+        border: 3px solid #fff;
+        display: block;
+        margin: 0 auto;
+        .b-avatar-badge {
+            font-size: 1em !important;
+        }
+    }
+    .custom_avatar {
+        float: left;
+        width: 20%;
+        background-color: #038ffe;
+        border-radius: 10px;
+        
+    }
+}
+.avatar_section {
+    ul.nav{
+        .nav-item{
+            .nav-link{
+                color: #fff;
+            }
+            &:first-child {
+                
+                .nav-link {
+                    padding: 0.5rem .0rem;
+                    background: transparent !important;
+                }
+            }
+            .section_first_title {
+                display: block;
+                padding: 0.5rem 1rem;
+                border-radius: 0.25rem;
+            }
+        }
+        .nav-item .active{
+            background-color:#f0f8ff45;   
+            .section_first_title{
+                background-color:#f0f8ff45;   
+            }
+        }
+        
+    }
+    .card-header{
+        padding: 0.75rem .5rem;
+    }
+    h4.cus_name {
+        text-align: center;
+        margin: 10px 0;
+        font-weight: bold;
+    }
+    
+}
+.tab_account{
+    .card-body{
+        padding: 0 !important;
+    }
+}

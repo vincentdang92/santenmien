@@ -11,7 +11,7 @@ export default function ({ app, redirect, store }) {
             
         });
         
-        redirect('https://id.nhanhoa.com/')
+        //redirect('https://id.nhanhoa.com/')
     }
     else{
         store.dispatch('auth/setToken',cookieRes);

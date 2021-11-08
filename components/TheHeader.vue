@@ -20,14 +20,14 @@
 						</div>
 						<div class="btn-login">
 							<ul>
-								<li v-if="!isAuthenticated" class="register">
+								<li v-if="isAuthenticated" class="register">
 									<nuxt-link class="c_b_s" to="/dang-ky.html"><b-icon  icon="person-circle"></b-icon>  Đăng ký</nuxt-link>
 								</li>
-								<li v-if="!isAuthenticated"  class="login">
+								<li v-if="isAuthenticated"  class="login">
 									<nuxt-link class="c_b_s" to="/dang-ky.html"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</nuxt-link>
 								</li>
 								
-								<li v-if="isAuthenticated">
+								<li v-if="!isAuthenticated">
 									<b-dropdown
 										split-variant="outline-primary"
 										variant="default"
@@ -36,7 +36,7 @@
 										<template #button-content>
 											<b-avatar badge  badge-variant="success" src="user.jpg"></b-avatar> Lê Thị Bé Na Na
 										</template>
-										<b-dropdown-item href="#"><b-icon icon="gear-fill"></b-icon> Thông tin cá nhân</b-dropdown-item>
+										<b-dropdown-item href="/tai-khoan.html"><b-icon icon="gear-fill"></b-icon> Thông tin cá nhân</b-dropdown-item>
 										<b-dropdown-item href="#" @click.prevent="logout"><b-icon variant="danger" icon="power"></b-icon> Đăng xuất</b-dropdown-item>
 										
 									</b-dropdown>
