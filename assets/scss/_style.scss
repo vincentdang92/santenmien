@@ -128,11 +128,13 @@
         .nav-item{
             .nav-link{
                 color: #fff;
+                margin-bottom: 10px;
             }
             &:first-child {
                 
                 .nav-link {
-                    padding: 0.5rem .0rem;
+                    // padding: 0.5rem .0rem;
+                    padding: 0rem .0rem;
                     background: transparent !important;
                 }
             }
@@ -163,5 +165,68 @@
 .tab_account{
     .card-body{
         padding: 0 !important;
+    }
+}
+.information-user{
+    box-shadow: none;
+    table{
+        thead {
+            background: #002f8a;
+            color: #fff;
+        }
+    }
+    .dropdown-left-custom{
+        ul{
+            left: -100px !important;
+            z-index: 2;
+            background-color: #dff1ff;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border: 0;
+            padding: 0;
+            &::after{
+                // background-color: #cb3a2d;
+                // bottom: -20px;
+                // content: '';
+                // display: block;
+                // height: 40px;
+                // left: 50%;
+                // margin-left: -20px;
+                // position: relative;
+                // -ms-transform: rotate(45deg);
+                // -webkit-transform: rotate(45deg);
+                // transform: rotate(45deg);
+                // width: 40px;
+                // z-index: 1;
+
+                content: '';
+                position: absolute;
+                top: -7px;
+                right: 19px;
+                width: 10px;
+                height: 10px;
+                font-size: 21px;
+                background-color: #dff1ff;
+                color: #dff1ff;
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                z-index: 1;
+            }
+            li{
+                a{
+                    padding: .5em .5em;
+                    color: #002f8a;
+                    font-weight: bold;
+                    font-size: 14px;
+                    padding-left: 20px;
+                }
+                &:hover{
+                    a{
+                        background-color: #C5E6FF;
+                    }
+                }
+            }
+        }
+        
     }
 }

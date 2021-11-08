@@ -100,7 +100,7 @@ import WhyUs from "@/components/WhyUs";
 Vue.use(RangeSlider);
 
 export default {
-    middleware: 'router-auth',
+    //middleware: 'router-auth',
     components: { 
       RangeSlider,
       FAQ,
