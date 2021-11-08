@@ -183,7 +183,7 @@
     data() {
       return {
         range_slider_value: [1,60],
-        
+        totalRows:1,
         perPage: 3,
         currentPage: 1,
         domain_name: '',
