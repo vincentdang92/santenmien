@@ -112,7 +112,13 @@
                                         <nuxt-link class="btn btn-primary btn-sm text-white" :to="{ name: 'chi-tiet-ten-mien.html', params: { domainId: row.item.id }}"><b-icon icon="eye"></b-icon> chi tiết</nuxt-link>
                                         
                                     </template>
-                                   
+                                    <template #cell(start_price)="row">
+                                       {{ formatCurrency(row.item.start_price) }}
+                                    </template>
+                                    <template #cell(buy_price)="row">
+                                       {{ formatCurrency(row.item.buy_price) }}
+                                    </template>
+                                    
                                     <template #cell(domain)="row">
                                         <b-button class="show_hide_detail" variant="default" size="sm" @click="row.toggleDetails">
                                             <b-icon v-if="row.detailsShowing" icon="dash-square"></b-icon>
@@ -123,12 +129,13 @@
                                         
                                     </template>
                                     <template #row-details="row">
-                                        <b-card>
-                                        <ul>
-                                            <li v-for="(value, key) in row.item" :key="key">{{ key }}: {{ value }}</li>
+                                        <b-card class="card-table-description">
+                                        <ul class="list-description" v-html="filterRercord(row.item)">
+                                           
                                         </ul>
                                         </b-card>
                                     </template>
+                                    
                                     
 
                                 </b-table>
@@ -154,6 +161,7 @@
 <script>
   import Vue from 'vue';
   import RangeSlider from '@vueform/slider/dist/slider.vue2.js';
+  import { formatCurrency, formatNumber } from "~/utils/number-format";
   import FAQ from "@/components/FAQ";
   import WhyUs from "@/components/WhyUs";
   Vue.use(RangeSlider);  
@@ -212,34 +220,45 @@
             {key:"domain", label:"Tên miền"},
             {key:"year", label:"Năm"},
             {key:"backlink", label:"Backlink"},
-            {key:"date_1", label:"Ngày đăng"},
+            {key:"expired_date", label:"Ngày đăng"},
             {key:"start_price", label:"Giá khởi điểm"},
             {key:"buy_price", label:"Giá mua ngay"},
             {key:"id", label:"Hành động"},
             
         ],
         items: [
-          { domain: 'master-bo.com', year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.' },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { id: 123123, domain: "123123.com", year: 1, backlink: 12, date_1: '05/08/2021',start_price : "100.000.000",buy_price: "100.000.000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: 'master-bo.com', year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.' },
+          { domain: "forex101.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Công ty 1'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { id: 123123, domain: "123123.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           
         ]
         
       }
     },
     methods:{
+        formatCurrency,
         onChangeCareer(){
             console.log(this.selected_career);
         },
         onChangeExtend(){
             console.log(this.selected_extend);
         },
+        filterRercord(data){
+            return `
+                <li class="list-description-item">Nhà đăng ký: ${data.registrar}</li>
+                <li class="list-description-item">Ngày hết hạn: ${data.expired_date}</li>
+                <li class="list-description-item">Danh mục: </li>
+                <li class="list-description-item">Mô tả: </li>
+                <li class="list-description-item">Tên người bán hàng: </li>
+            
+            `;
+        }
         
     }
   }
@@ -267,4 +286,19 @@
     .domain_lenght fieldset {
         margin: 0 !important;
     }
+    .list-description {
+       border-radius: 5px;
+    }
+    .list-description-item {
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+    .card-table-description{
+        background: #929292;
+    }
+    
 </style>
