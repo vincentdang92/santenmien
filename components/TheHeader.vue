@@ -100,7 +100,25 @@ export default {
 	methods:{
 		async logout() {
 			const doLogout = await this.$store.dispatch('auth/logout');
-			if(doLogout.status == 'success') {
+			if(doLogout) {
+				this.$cookies.remove('cushash',{
+					path:'/',
+            		domain:'.nhanhoa.com',
+				});
+      			this.$cookies.remove('cusid',{
+					path:'/',
+            		domain:'.nhanhoa.com',
+				});
+				this.$cookies.remove('PHPSESSID',{
+					path:'/',
+            		domain:'.nhanhoa.com',
+				});
+				this.$cookies.remove('PHPSESSID',{
+					path:'/',
+            		domain:'id.nhanhoa.com',
+				});
+				
+
 				this.$router.push('/');
 			}
     	}
