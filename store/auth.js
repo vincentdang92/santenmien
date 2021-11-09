@@ -23,7 +23,7 @@
       commit('setToken',(state,  payload ));
         
     },
-    logout({state, commit}, payload) {
+    logout({state, commit, app}, payload) {
       commit('removeToken',(state));
       return true;
     },
@@ -40,8 +40,8 @@
       
     },
     removeToken(state) {
-      state.userToken = null;
-      
+      state.cusHash = null;
+      state.cusId = null;
     }
   };
   

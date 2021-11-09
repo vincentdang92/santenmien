@@ -12,8 +12,6 @@ export default function ({ app, redirect, store, route, $config, isDev }) {
             sameSite: 'strict'
             
         });
-        
-        
         if(app.$cookies.get('returnUrl')){
             redirect('https://id.nhanhoa.com/')
         }

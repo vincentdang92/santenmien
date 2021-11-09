@@ -6,10 +6,13 @@ const state = () => ({
 
 const actions = {
   nuxtServerInit ({ commit }, { req, app, store }) {
-    const cusHash = app.$cookies.get('cushash');
-    const cusId = app.$cookies.get('cusId');
-    console.log(cusHash,'cusHash');
-    
+    const cushash = app.$cookies.get('cushash');
+    const cusid = app.$cookies.get('cusId');
+    //console.log(cusHash,'cusHash');
+    store.dispatch('auth/setToken',{
+      cusHash: cushash,
+      cusId: cusid
+  });
   }
 }
 
