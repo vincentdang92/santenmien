@@ -1,9 +1,10 @@
-export default function ({ app, redirect, store }) {
+export default function ({ app, redirect, store, route }) {
     
     const cookieRes = app.$cookies.get('userToken');
-    console.log(cookieRes,'cookieRes');
+    const path = 'santenmien.nhanhoa.com/'+route.path;
+    console.log(path,'path');
     if(!cookieRes){
-        app.$cookies.set('returnUrl','santenmien.nhanhoa.com',{
+        app.$cookies.set('returnUrl',path,{
             path:'/',
             domain:'.nhanhoa.com',
             maxAge: 60 * 60 * 24 * 7,
