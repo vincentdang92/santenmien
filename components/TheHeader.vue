@@ -21,10 +21,10 @@
 						<div class="btn-login">
 							<ul>
 								<li v-if="!isAuthenticated " class="register">
-									<nuxt-link class="c_b_s" to="/dang-ky.html"><b-icon  icon="person-circle"></b-icon>  Đăng ký</nuxt-link>
+									<a class="c_b_s" :href="`${$config.baseURL}/dang-ky.html`"><b-icon  icon="person-circle"></b-icon>  Đăng ký</a>
 								</li>
 								<li v-if="!isAuthenticated "  class="login">
-									<nuxt-link class="c_b_s" to="/dang-nhap.html"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</nuxt-link>
+									<a class="c_b_s" :href="`${$config.baseURL}/dang-nhap.html`"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</a>
 								</li>
 								
 								<li v-if="isAuthenticated">
