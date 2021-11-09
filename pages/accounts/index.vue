@@ -282,7 +282,7 @@
 <script>
 import { formatCurrency, formatNumber } from "~/utils/number-format";
 export default {
-    // middleware: 'router-auth',
+    middleware: 'router-auth',
     data(){
         return{
             perPage: 3,

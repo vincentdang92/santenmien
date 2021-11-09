@@ -20,14 +20,14 @@
 						</div>
 						<div class="btn-login">
 							<ul>
-								<li v-if="!isAuthenticated || 1 != 1" class="register">
+								<li v-if="!isAuthenticated " class="register">
 									<nuxt-link class="c_b_s" to="/dang-ky.html"><b-icon  icon="person-circle"></b-icon>  Đăng ký</nuxt-link>
 								</li>
-								<li v-if="!isAuthenticated || 1 != 1"  class="login">
+								<li v-if="!isAuthenticated "  class="login">
 									<nuxt-link class="c_b_s" to="/dang-ky.html"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</nuxt-link>
 								</li>
 								
-								<li v-if="isAuthenticated || 1==1">
+								<li v-if="isAuthenticated">
 									<b-dropdown
 									 	id="dropdown-right"
 										split-variant="outline-primary"
