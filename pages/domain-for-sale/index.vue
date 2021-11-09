@@ -234,7 +234,7 @@
           { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          
           { id: 123123, domain: "123123.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           
         ]

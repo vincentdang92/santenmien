@@ -1,6 +1,6 @@
 export function formatCurrency(number) {
     if (number === null || number === undefined) return;
-    return new Intl.NumberFormat('vi-VI', { style: 'currency', currency: 'VND' }).format(number)
+    return number.toLocaleString("vi-VN")+ " đ";
   }
   
   export function formatNumber(number) {
