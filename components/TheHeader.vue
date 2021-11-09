@@ -24,7 +24,7 @@
 									<nuxt-link class="c_b_s" to="/dang-ky.html"><b-icon  icon="person-circle"></b-icon>  Đăng ký</nuxt-link>
 								</li>
 								<li v-if="!isAuthenticated "  class="login">
-									<nuxt-link class="c_b_s" to="/dang-ky.html"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</nuxt-link>
+									<nuxt-link class="c_b_s" to="/dang-nhap.html"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</nuxt-link>
 								</li>
 								
 								<li v-if="isAuthenticated">

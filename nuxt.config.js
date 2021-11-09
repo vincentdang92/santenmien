@@ -14,7 +14,8 @@ module.exports =  {
     ]
   },
   server: {
-    port: 9999 // default: 3000
+    port: 9999, // default: 3000
+    host: 'local.nhanhoa.com',
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -25,7 +26,7 @@ module.exports =  {
     '@/assets/scss/_style.scss',
   ],
   publicRuntimeConfig: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://santenmien.nhanhoa.com' : 'http://localhost:3000'
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://santenmien.nhanhoa.com' : 'http://local.nhanhoa.com'
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -66,6 +67,16 @@ module.exports =  {
         path: '/tai-khoan.html',
         component: resolve(__dirname, 'pages/accounts/index.vue')
       });
+      routes.push({
+        name: 'dang-nhap',
+        path: '/dang-nhap.html',
+        component: resolve(__dirname, 'pages/login/index.vue')
+      });
+      routes.push({
+        name: 'dang-ky',
+        path: '/dang-ky.html',
+        component: resolve(__dirname, 'pages/register/index.vue')
+      });
       
       
     }
@@ -84,7 +95,14 @@ module.exports =  {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  // axios: {
+  //   proxy: true, // Can be also an object with default options
+  //   //baseURL:'http://api.themedemo.xyz/'
+  // },
+  // proxy:{
+  //   //'/api/' :'https://firebase.blog4share.com/wp-json/jwt-auth/v1'
+  //   '/api-login' :'https://id.nhanhoa.com/login/do'
+  // },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
