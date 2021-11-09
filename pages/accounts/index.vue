@@ -115,8 +115,18 @@
                                                 <div class="title-information">
                                                     Tên miền bạn đăng bán
                                                 </div>
-                                                <b-table :items="items" :fields="fields" responsive="xs" striped  >
-                                   
+                                                <b-table :items="items" :fields="fields" fixed responsive striped  >
+                                                    <template #table-colgroup="scope">
+                                                        <col
+                                                        v-for="field in scope.fields"
+                                                        :key="field.key"
+                                                        :style="{ width: field.key === 'domain' ? '180px' : '' }"
+                                                        >
+                                                    </template>
+                                                    <template #head(record_status)="data">
+                                                        Trạng thái <br /> bảng ghi
+                                                    </template>
+
                                                     <template #cell(actions)="row">
                                                         
                                                         <b-dropdown
@@ -138,11 +148,17 @@
                                                         {{ formatCurrency(row.item.price) }}
                                                     </template>
                                                     <template #cell(status)="row">
-                                                        
+                                                        <b-badge class="c_b_s" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s" v-else  variant="info">Chờ xác nhận</b-badge>
                                                     </template>
                                                     <template #cell(record_status)="row">
-                                                        
+                                                        <b-badge class="c_b_s" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s text-white" v-else  variant="warning">Chờ xác nhận</b-badge>
                                                     </template>
+                                                    <template #cell(domain)="row">
+                                                        <span class="cell_domain">{{ row.item.domain }}</span>
+                                                    </template>
+                                                    
                                                     
                                                     <template #row-details="row">
                                                         <b-card class="card-table-description">
@@ -288,16 +304,15 @@ export default {
             perPage: 3,
             currentPage: 1,
             items: [
-				{ id: 1,domain: 'diendandoanhnhan.net', status:1, record_status:2, publish_date: '11/11/2021', price:10000000 },
-				{ id: 2,domain: 'gocmilu.net', status:1, record_status:2, publish_date: '30/11/2021', price:25000000 },
-				{ id: 3,domain: 'gocmilu.net', status:1, record_status:2, publish_date: '30/11/2021', price:25000000 },
-				{ id: 4,domain: 'gocmilu.net', status:1, record_status:2, publish_date: '30/11/2021', price:25000000 },
-				{ id: 5,domain: 'gocmilu.net', status:1, record_status:2, publish_date: '30/11/2021', price:25000000 },
-				{ id: 6,domain: 'gocmilu.net', status:1, record_status:2, publish_date: '30/11/2021', price:25000000 },
+				{ id: 1,domain: 'diendandoanhnhan.net213123', status:1, record_status:1, publish_date: '11/11/2021', price:10000000 },
+				{ id: 2,domain: 'gocmilu.net', status:1, record_status:1, publish_date: '30/11/2021', price:25000000 },
+				{ id: 3,domain: 'gocmilu.net', status:0, record_status:1, publish_date: '30/11/2021', price:25000000 },
+				{ id: 4,domain: 'gocmilu.net', status:1, record_status:0, publish_date: '30/11/2021', price:25000000 },
+				{ id: 5,domain: 'gocmilu.net', status:0, record_status:2, publish_date: '30/11/2021', price:25000000 },
+				{ id: 6,domain: 'gocmilu.net', status:1, record_status:0, publish_date: '30/11/2021', price:25000000 },
 				{ id: 7,domain: 'gocmilu.net', status:1, record_status:2, publish_date: '30/11/2021', price:25000000 },
 				{ id: 8,domain: 'gocmilu.net', status:1, record_status:2, publish_date: '30/11/2021', price:25000000 },
-				{ id: 9,domain: 'gocmilu.net', status:1, record_status:2, publish_date: '30/11/2021', price:25000000 },
-				{ id: 10,domain: 'gocmilu.net', status:1, record_status:2, publish_date: '30/11/2021', price:25000000 },
+				
 			],
 			fields: [
 				

@@ -1,3 +1,22 @@
+@font-face {
+font-family: 'SFProDisplaySemiBold';
+src: url("/fonts/SFProDisplay/SF-Pro-Display-Semibold.otf") format("opentype");
+}
+@font-face {
+font-family: 'SFProDisplayRegular';
+src: url("/fonts/SFProDisplay/SF-Pro-Display-Regular.otf") format("opentype");
+}
+@font-face {
+font-family: 'SFProDisplayBold';
+src: url("/fonts/SFProDisplay/SF-Pro-Display-Bold.otf") format("opentype");
+}
+body{
+    font-family: 'SFProDisplayRegular',sans-serif !important;
+    font-size: 16px !important;
+}
+h1, h2, h3, h4, h5{
+    font-family: 'SFProDisplaySemiBold',sans-serif !important;
+}
 .form_normal{
     .form-group{
         select{
@@ -15,6 +34,7 @@
 .info-career{
     .custom-checkbox {
         margin-bottom: 10px;
+        display: block;
     }
 }
 .header-menu{
@@ -177,7 +197,7 @@
     }
     .dropdown-left-custom{
         ul{
-            left: -100px !important;
+            // left: -100px !important;
             z-index: 2;
             background-color: #dff1ff;
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -227,6 +247,30 @@
                 }
             }
         }
+        
+    }
+    table{
+        td{
+            padding: 0.25rem .8rem;
+            .dropdown-left-custom{
+                float: right;
+            }
+            span.cell_domain {
+                font-weight: bold;
+                white-space: normal;
+            }
+            .badge {
+                margin: 0 auto;
+                max-width: 90%;
+                display: block;
+            }
+        }
+        thead{
+            th{
+                text-align: center;
+            }
+        }
+
         
     }
 }
