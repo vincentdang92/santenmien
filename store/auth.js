@@ -2,8 +2,9 @@
  * initial state
  */
  const state = () => ({
-    userToken: null,
-    userAgent:null
+    cusHash: null,
+    cusId: null,
+    
   });
   
   /**
@@ -11,7 +12,7 @@
    */
   const getters = {
     isAuthenticated: (state) =>
-      state.userToken != undefined  && state.userToken.length > 0
+      state.cusHash != undefined  && state.cusHash.length > 0 || state.cusId != undefined && state.cusId.length > 0
   };
   
   /**
@@ -19,13 +20,12 @@
    */
   const actions = {
     setToken({state, commit}, payload) {
-        commit('setToken',(state, payload));
+      commit('setToken',(state,  payload ));
         
     },
     logout({state, commit}, payload) {
-        commit('removeToken',(state));
-        
-        return true;
+      commit('removeToken',(state));
+      return true;
     },
     
   };
@@ -35,10 +35,10 @@
    */
   const mutations = {
     setToken(state, token) {
-      state.userToken = token;
+      state.cusHash = token.cusHash;
+      state.cusId = token.cusId;
       
     },
-  
     removeToken(state) {
       state.userToken = null;
       

@@ -1,9 +1,10 @@
 export default function ({ app, redirect, store, route }) {
     
-    const cookieRes = app.$cookies.get('userToken');
+    const cushash = app.$cookies.get('cushash');
+    const cusid = app.$cookies.get('cusid');
     const path = 'santenmien.nhanhoa.com/'+route.path;
     console.log(path,'path');
-    if(!cookieRes){
+    if(!cushash || cushash.length == 0 || !cusid || cusid.length == 0){
         app.$cookies.set('returnUrl',path,{
             path:'/',
             domain:'.nhanhoa.com',
@@ -12,9 +13,15 @@ export default function ({ app, redirect, store, route }) {
             
         });
         
-        redirect('https://id.nhanhoa.com/')
+        //redirect('https://id.nhanhoa.com/')
+        if(app.$cookies.get('returnUrl')){
+            redirect('/dang-nhap.html');
+        }
     }
     else{
-        store.dispatch('auth/setToken',cookieRes);
+        store.dispatch('auth/setToken',{
+            cusHash: cushash,
+            cusId: cusid
+        });
     }
   }
