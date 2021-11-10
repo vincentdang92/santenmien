@@ -56,6 +56,10 @@ dl, ol, ul {
 .btn-login>ul>li.login>a {
     background: #038ffe;
 }
+.btn-login>ul>li.login>a:hover {
+    cursor: pointer;
+}
+
 
 .btn-login>ul>li.register>a {
     border-color: #002F8A;
