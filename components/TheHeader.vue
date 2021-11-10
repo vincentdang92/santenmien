@@ -37,7 +37,7 @@
 										<template #button-content>
 											<b-avatar badge  badge-variant="success" src="user.jpg"></b-avatar> Lê Thị Bé Na Na
 										</template>
-										<b-dropdown-item href="/tai-khoan.html"><b-icon icon="gear-fill"></b-icon> Thông tin cá nhân</b-dropdown-item>
+										<b-dropdown-item href="/tai-khoan.html"><b-icon icon="gear"></b-icon> Thông tin cá nhân</b-dropdown-item>
 										<b-dropdown-item href="#" @click.prevent="logout"><b-icon variant="danger" icon="power"></b-icon> Đăng xuất</b-dropdown-item>
 										
 									</b-dropdown>
@@ -99,27 +99,22 @@ export default {
 	},
 	methods:{
 		async logout() {
-			const doLogout = await this.$store.dispatch('auth/logout');
-			if(doLogout) {
-				this.$cookies.remove('cushash',{
-					path:'/',
-            		domain:'.nhanhoa.com',
-				});
-      			this.$cookies.remove('cusid',{
-					path:'/',
-            		domain:'.nhanhoa.com',
-				});
-				this.$cookies.remove('PHPSESSID',{
-					path:'/',
-            		domain:'.nhanhoa.com',
-				});
-				this.$cookies.remove('PHPSESSID',{
-					path:'/',
-            		domain:'id.nhanhoa.com',
-				});
-				
-
-				this.$router.push('/');
+			if(this.$config.logoutURL){
+				const doLogout = await this.$store.dispatch('auth/logout');
+				if(doLogout) {
+					this.$cookies.set('returnUrl','santenmien.nhanhoa.com',{
+						path:'/',
+						domain:'.nhanhoa.com',
+						maxAge: 60 * 60 * 24 * 7,
+						sameSite: 'strict'
+						
+					});
+					console.log(this.$cookies.get('returnUrl'));
+					if(this.$cookies.get('returnUrl') == 'santenmien.nhanhoa.com'){
+						window.location = this.$config.logoutURL;
+					}
+					// this.$router.push('/');
+				}
 			}
     	}
 	}
