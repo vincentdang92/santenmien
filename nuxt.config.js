@@ -27,7 +27,8 @@ module.exports =  {
   ],
   publicRuntimeConfig: {
     baseURL: process.env.NODE_ENV === 'production' ? 'https://santenmien.nhanhoa.com' : 'http://local.nhanhoa.com:9999',
-    logoutURL: 'https://id.nhanhoa.com/logout.html'
+    logoutURL: 'https://id.nhanhoa.com/logout.html',
+    loginURL: 'https://id.nhanhoa.com',
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [

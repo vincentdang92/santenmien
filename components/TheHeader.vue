@@ -24,7 +24,7 @@
 									<a class="c_b_s" :href="`${$config.baseURL}/dang-ky.html`"><b-icon  icon="person-circle"></b-icon>  Đăng ký</a>
 								</li>
 								<li v-if="!isAuthenticated "  class="login">
-									<a class="c_b_s" :href="`${$config.baseURL}/dang-nhap.html`"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</a>
+									<a class="c_b_s" @click.prevent="handleLogin"><b-icon  icon="person-bounding-box"></b-icon>  Đăng nhập</a>
 								</li>
 								
 								<li v-if="isAuthenticated">
@@ -38,7 +38,7 @@
 											<b-avatar badge  badge-variant="success" src="user.jpg"></b-avatar> Lê Thị Bé Na Na
 										</template>
 										<b-dropdown-item href="/tai-khoan.html"><b-icon icon="gear"></b-icon> Thông tin cá nhân</b-dropdown-item>
-										<b-dropdown-item href="#" @click.prevent="logout"><b-icon variant="danger" icon="power"></b-icon> Đăng xuất</b-dropdown-item>
+										<b-dropdown-item href="#" @click.prevent="handleLogout"><b-icon variant="danger" icon="power"></b-icon> Đăng xuất</b-dropdown-item>
 										
 									</b-dropdown>
 								</li>
@@ -98,10 +98,10 @@ export default {
 		}
 	},
 	methods:{
-		async logout() {
-			if(this.$config.logoutURL){
+		async handleLogout() {
+			if( this.$config.logoutURL ){
 				const doLogout = await this.$store.dispatch('auth/logout');
-				if(doLogout) {
+				if( doLogout ) {
 					this.$cookies.set('returnUrl','santenmien.nhanhoa.com',{
 						path:'/',
 						domain:'.nhanhoa.com',
@@ -109,14 +109,34 @@ export default {
 						sameSite: 'strict'
 						
 					});
-					console.log(this.$cookies.get('returnUrl'));
-					if(this.$cookies.get('returnUrl') == 'santenmien.nhanhoa.com'){
+					if( this.$cookies.get('returnUrl') == 'santenmien.nhanhoa.com' ){
 						window.location = this.$config.logoutURL;
 					}
 					// this.$router.push('/');
 				}
 			}
-    	}
+    	},
+		async handleLogin(){
+			if( this.$config.loginURL ){
+				let returnURL = this.$cookies.get('returnUrl');
+				if( returnURL == undefined || returnURL == null  ){
+					this.$cookies.set('returnUrl','santenmien.nhanhoa.com',{
+						path:'/',
+						domain:'.nhanhoa.com',
+						maxAge: 60 * 60 * 24 * 7,
+						sameSite: 'strict'
+						
+					});
+					if( this.$cookies.get('returnUrl') ){
+						window.location = this.$config.loginURL;
+					}
+				}
+			}
+			else{
+				window.location = this.$config.loginURL;
+			}
+		}
+
 	}
 }
 </script>
