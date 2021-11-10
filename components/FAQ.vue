@@ -17,13 +17,12 @@
               <div id="accordion" class="accordion" role="tablist">
                 <b-card no-body class="mb-1">
                   <b-card-header header-tag="header" class="p-1 " role="tab">
-                    <b-button  class="text-left" block v-b-toggle.accordion-1 variant="default">Tôi có rất nhiều tên miền muốn bán, làm sao đăng lên Nhanh nhất <b-icon class="when-closed float-right"  icon="plus-circle-fill"></b-icon> <b-icon class="when-open float-right"  icon="dash-circle-fill"></b-icon></b-button>
+                    <b-button  class="text-left" block v-b-toggle.accordion-1 variant="default">Tôi có rất nhiều tên miền muốn đăng bán, làm sao để đăng lên nhanh nhất? <b-icon class="when-closed float-right"  icon="plus-circle-fill"></b-icon> <b-icon class="when-open float-right"  icon="dash-circle-fill"></b-icon></b-button>
                   </b-card-header>
                   <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
                     <b-card-body>
                       <b-card-text>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-		                                explicabo. Nemo enim ipsam voluptatem quia…
+                        Thông thường để đăng bán tên miền trên sàn, chủ sở hữu tên miền phải xác minh bản ghi để xác nhận tên miền đúng là của mình. Tuy nhiên hệ thống hỗ trợ các tài khoản có nhiều tên miền đăng lên tự động mà không cần xác nhận từng tên miền một.
                       </b-card-text>
                       
                     </b-card-body>
@@ -36,8 +35,7 @@
                   <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
                     <b-card-body>
                       <b-card-text>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-		                                explicabo. Nemo enim ipsam voluptatem quia…
+                        Hệ thống phân tích dữ liệu của Nhân Hòa sẽ tự động tìm ra người phù hợp muốn mua(bán) tên miền của bạn để gợi ý thông qua hình thức gửi email, push notification và hiển thị các tên miền đẹp trên hệ sinh thái của Nhân Hòa.
                       </b-card-text>
                     </b-card-body>
                   </b-collapse>
@@ -49,8 +47,7 @@
                   <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
                     <b-card-body>
                       <b-card-text>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-		                                explicabo. Nemo enim ipsam voluptatem quia…
+                        Việc định giá tên miền chưa có công cụ nào thực sự chính xác nên việc đặt giá chỉ mang tính chất tham khảo, đến khi hai bên cùng thấy mức giá hợp lý thì mới tiến hành giao dịch mua bán.
                       </b-card-text>
                     </b-card-body>
                   </b-collapse>

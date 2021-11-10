@@ -26,7 +26,8 @@ module.exports =  {
     '@/assets/scss/_style.scss',
   ],
   publicRuntimeConfig: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://santenmien.nhanhoa.com' : 'http://local.nhanhoa.com:9999'
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://santenmien.nhanhoa.com' : 'http://local.nhanhoa.com:9999',
+    logoutURL: 'https://id.nhanhoa.com/logout.html'
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
