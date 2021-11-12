@@ -120,6 +120,17 @@ module.exports =  {
      }),
 
   ],
+  styleResources: {
+    scss: [
+      '~/assets/scss/_variables.scss',
+    ]
+  },
+  /*
+  ** optimizedImages
+  */
+  optimizedImages: {
+    //optimizeImages: true
+  },
   // auth: {
     
   //   strategies: {
@@ -151,16 +162,16 @@ module.exports =  {
     },
 
     babel: {
-        presets ({ isServer }, [ preset, options ]) {
-            return [
-                [
-                    preset, {
-                    ...options,
-                    targets: isServer ? { node: 'current' } : { android: '4', ie: '9' }
-                    }
-                ]
-            ]
-        }
+      presets ({ isServer }, [ preset, options ]) {
+          return [
+              [
+                  preset, {
+                  ...options,
+                  targets: isServer ? { node: 'current' } : { android: '4', ie: '9' }
+                  }
+              ]
+          ]
+      }
     },
     publicPath: 'santenmien/',
     extractCSS: true,

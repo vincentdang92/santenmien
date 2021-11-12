@@ -8,44 +8,79 @@
 							Gửi yêu cầu mua tên miền {{ userToken }}
 						</h3>
 						<p>
-							Nếu Quý khách gặp khó khăn khi phải trỏ bản ghi nhiều tên miền, vui lòng gửi danh sách tên miền về địa chỉ  santenmien@inet.vn để chúng tôi hỗ trợ đăng tên miền.
+							Nếu Quý khách gặp khó khăn khi phải trỏ bản ghi nhiều tên miền, vui lòng gửi danh sách tên miền về địa chỉ  santenmien@nhanhoa.com để chúng tôi hỗ trợ đăng tên miền.
 						</p>
 					</div>
                     <div class="info-buy-domain-name">
                         <b-form class="form_normal">
                             <div class="buy-top-radio">
-                                <b-form-group  v-slot="{ ariaDescribedby }">
+                                <b-form-group  >
                                     <b-form-radio-group
                                         id="radio-group-1"
                                         v-model="selected_find_type"
-                                        :options="option_find_type"
-                                        :aria-describedby="ariaDescribedby"
-                                        name="radio-options"
-                                    ></b-form-radio-group>
+                                        name="find_type"
+                                        @change="onChangeFindType"
+                                    >
+                                        <b-form-radio :value="1">Chỉ định rõ tên miền <b-icon variant="success" id="radio-multi-domain-tooltips" icon="patch-question-fill"></b-icon></b-form-radio>
+                                        <b-form-radio :value="2">Nhập nhiều tên miền </b-form-radio>
+                                    </b-form-radio-group>
+                                    <b-tooltip target="radio-multi-domain-tooltips" variant="success" triggers="hover">Giúp tìm kiếm tên miền nhanh hơn</b-tooltip>
                                 </b-form-group> 
                             </div>
                             <div class="buy-domain-name-input">
                                 <b-form-group
-                                    label="Tên miền muốn tìm mua"
-                                    label-for="input-formatter"
+                                    :label="selected_find_type == 1 ? 'Tên miền muốn tìm mua' : 'Nhập nhiều tên miền'"
+                                    label-for="input-domain-name"
                                     >
                                     <b-form-input
-                                        id="input-formatter"
-                                        v-model="domain_name"
+                                        v-if="selected_find_type == 1"
+                                        id="input-domain-name"
+                                        v-model="single_domain"
                                         placeholder="Tên miền muốn tìm mua"
                                         
                                     ></b-form-input>
+                                    <b-form-textarea
+                                        v-if="selected_find_type == 2"
+                                        id="textarea"
+                                        v-model="multi_domain"
+                                        placeholder="Tối đa 4000 ký tự"
+                                        rows="3"
+                                        max-rows="6"
+                                    ></b-form-textarea>
                                 </b-form-group>
-                                <b-form-group
-                                    label="Từ khóa nâng cao"
-                                    label-for="input-formatter"
-                                    >
-                                    <b-form-input
-                                        id="input-formatter"
-                                        v-model="adv_domain_name"
-                                        placeholder="Từ khóa nâng cao"
+                                <b-form-group>
+                                    <label for="input-keywords" class="d-block" >Từ khóa tên miền: <b-icon variant="success" id="input-keywords-tooltips" icon="patch-question-fill"></b-icon></label>
+                                    <!-- <b-form-input
+                                        id="input-keywords"
+                                        v-model="keywords"
+                                        placeholder="Nhập từ khóa (tối thiểu 3 ký tự)"
                                         
-                                    ></b-form-input>
+                                    ></b-form-input> -->
+                                    <b-form-tags
+                                        input-id="tags-state-event"
+                                        v-model="tags"
+                                        :tag-validator="validator"
+                                        placeholder="Nhập từ khóa (tối thiểu 3 ký tự)"
+                                        separator=" "
+                                        @tag-state="onTagState"
+                                        duplicateTagText="Đã có từ khóa"
+                                        addButtonText="Thêm"
+                                        addButtonVariant="primary"
+                                        tag-variant="primary"
+                                        size="lg"
+                                        :limit="limitTags"
+                                        remove-on-delete
+                                        :limitTagsText="`Bạn được nhập tối đa ${limitTags} từ khóa!`"
+                                        :invalidTagText="`Độ dài từ khóa tối thiểu 3 ký tự`"
+                                        
+                                    >
+                                    <template #add-button-text>
+                                        <b-icon icon="plus-circle"></b-icon>
+                                    </template>
+                                    </b-form-tags>
+                                    
+                                    
+                                    <b-tooltip target="input-keywords-tooltips" variant="success" triggers="hover">Giúp tìm kiếm tên miền nhanh hơn với các từ khóa liên quan</b-tooltip>
                                 </b-form-group>
                                 <b-row>
                                     <b-col xs="5" lg="5">
@@ -58,7 +93,7 @@
                                     <b-col xs="1" lg="1">
                                        
                                     </b-col>
-                                    <b-col xs="6" lg="6">
+                                    <b-col col cols="10" lg="6">
                                         <b-form-group
                                          label="Khoảng giá"
                                         >
@@ -109,8 +144,9 @@ export default {
     data() {
       return {
         range_slider_value: [1000000,40000000],
-        domain_name:'',
-        adv_domain_name:'',
+        single_domain:'',
+        multi_domain:'',
+        keywords:'',
         selected_find_type: 1,
         selected_career:null,
         price_range:1000000,
@@ -121,14 +157,19 @@ export default {
 
         ],
         option_find_type: [
-          { text: 'Chỉ định rõ tên miền', value: 1 },
-          { text: 'Tìm kiếm nhiều tên miền', value: 2 },
+          { html: 'Chỉ định rõ tên miền', value: 1 },
+          { html: 'Tìm kiếm nhiều tên miền <b-icon variant="success" id="radio-domain-1" icon="patch-question-fill"></b-icon>', value: 2 },
           
-        ]
+        ],
+        tags: [],
+        validTags: [],
+        invalidTags: [],
+        duplicateTags: [],
+        limitTags: 3
       }
     },
     computed:{
-      ...mapState('auth', ['userToken'])
+       ...mapState('auth', ['userToken'])
     },
     methods:{
         priceRange(price){
@@ -139,6 +180,19 @@ export default {
         },
         submit(){
             console.log(this.range_slider_value);
+        },
+        onChangeFindType(){
+            if(this.selected_find_type == 2){
+
+            }
+        },
+        onTagState(valid, invalid, duplicate) {
+            this.validTags = valid
+            this.invalidTags = invalid
+            this.duplicateTags = duplicate
+        },
+        validator(tag) {
+            return tag.length > 2 && tag.length < 60
         }
     },
     

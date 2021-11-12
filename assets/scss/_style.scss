@@ -27,8 +27,8 @@ h1, h2, h3, h4, h5{
         }
         
     }
-    button{
-        height: 56px;
+    button:not(.b-form-tag-remove){
+        height: 40px;
     }
 }
 .info-career{
@@ -272,5 +272,30 @@ h1, h2, h3, h4, h5{
         }
 
         
+    }
+}
+.btn-add button {
+    color: #003CB4;
+    height: 56px;
+}
+.form-control,.custom-select{
+    //font-size: .9em;
+}
+.b-form-tags{
+    font-size: 1em;
+    padding-top: 0;
+    padding-bottom: 0;
+    // .badge{
+    //     padding: 0.05em 0.5em;
+    // }
+    // // font-size: .9em;
+    // align-items: center;
+    // align-self: center;
+    .d-flex{
+        justify-content: center;
+        align-items: center;
+        button{
+           
+        }
     }
 }

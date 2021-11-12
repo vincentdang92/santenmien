@@ -6,7 +6,7 @@
                     <b-col class="" cols="12">
                         <b-card  class="tab_account" no-body>
                             
-                            <b-tabs nav-wrapper-class="avatar_section" pills card vertical >
+                            <b-tabs nav-wrapper-class="avatar_section" pills card vertical v-model="tabIndex">
                                 <b-tab  active lazy>
                                     <template #title>
                                         <div>
@@ -301,6 +301,7 @@ export default {
     middleware: 'router-auth',
     data(){
         return{
+            tabIndex:0,
             perPage: 3,
             currentPage: 1,
             items: [
@@ -336,7 +337,10 @@ export default {
       
     },
     methods:{
-        formatCurrency
+        formatCurrency,
+        async loadTabData(idx){
+            console.log(idx);
+        }
     }
 }
 </script>

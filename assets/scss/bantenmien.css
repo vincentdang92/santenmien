@@ -44,21 +44,21 @@ button.btn-sell-domain-names {
 .info-sell-domain-names .form-group label {
     color: #058ffe;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
 }
-.info-sell-domain-names .row>div:nth-child(2), .info-sell-domain-names .row>div:nth-child(3), .info-sell-domain-names .row>div:nth-child(4) {
+/* .info-sell-domain-names .row>div:nth-child(2), .info-sell-domain-names .row>div:nth-child(3), .info-sell-domain-names .row>div:nth-child(4) {
     flex: 0 0 20.666667%;
     max-width: 20.666667%;
 }
-
-.info-sell-domain-names .row.row_form>div:last-child {
+*/
+.info-sell-domain-names .row.row_form>.col-lg-1 {
     flex: 0 0 4.666667%;
     max-width: 4.666667%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 10px;
-}
+} 
 
 .info-sell-domain-names .form-group {
     margin-bottom: 0;

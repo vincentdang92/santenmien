@@ -58,8 +58,8 @@
         <div class="session-career-domain pt-50 pb-50">
             <b-container>
                 <b-row>
-                    <b-col lg="3" sm="12" cols="12">
-                        <div class="item-career-left">
+                    <b-col lg="3" sm="12" cols="12" >
+                        <div class="item-career-left" :style="{ minHeight: boxHeight }">
                             <div class="title-career">
                               Ngành nghề
                             </div>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </b-col>
-                    <b-col lg="9" sm="12" cols="12">
+                    <b-col lg="9" sm="12" cols="12" ref="boxSaleDomain">
                         <div class="domain-names-are-for-sale">
                             <div class="item-top-domain-names">
                                 <b-row>
@@ -105,7 +105,7 @@
                                 </b-row>
                             </div>
                             <div class="item-mid-domain-names">
-                                <b-table :items="items" :fields="fields" responsive="xs" >
+                                <b-table  :items="items" :fields="fields" responsive="xs" >
                                    
                                     <template #cell(id)="row">
                                         
@@ -187,6 +187,7 @@
         perPage: 3,
         currentPage: 1,
         domain_name: '',
+        boxHeight: '',
         filter_selected:[],
         selected_career: null,
         selected_extend: null,
@@ -237,9 +238,11 @@
           
           { id: 123123, domain: "123123.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           
-        ]
-        
+        ]   
       }
+    },
+    mounted () {
+        this.matchHeight()
     },
     methods:{
         formatCurrency,
@@ -255,9 +258,14 @@
                 <li class="list-description-item">Ngày hết hạn: ${data.expired_date}</li>
                 <li class="list-description-item">Danh mục: </li>
                 <li class="list-description-item">Mô tả: </li>
-                <li class="list-description-item">Tên người bán hàng: </li>
+                <li class="list-description-item">Tên người bán: </li>
             
             `;
+        },
+        matchHeight () {
+            let height = this.$refs.boxSaleDomain.clientHeight;
+            height = height.toString();
+            this.boxHeight = height+"px";
         }
         
     }
