@@ -134,11 +134,11 @@ export default {
 						console.log('invalid return url');
 					}
 				}else{
-					console.log('valid return url');
+					window.location = this.$config.loginURL;
 				}
 			}
 			else{
-				window.location = this.$config.loginURL;
+				console.log('invalid loginURL');
 			}
 		}
 
