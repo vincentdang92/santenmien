@@ -14,13 +14,13 @@
 									Thông tin tên miền: <strong>noidung.net</strong>
 								</p>
 								<p>
-									Nhà đăng ký: <strong>INET CORPORATION</strong>
+									Nhà đăng ký: <strong>Nhân Hòa</strong>
 								</p>
 								<p>
-									Chủ thể:<strong> Cong ty TNHH Giai Phap Cong Nghe Truc Tuyen PVM</strong>
+									Chủ thể:<strong> Công ty TNHH Phần mềm Nhân Hòa</strong>
 								</p>
 								<p>
-									Tài khoản bán: <strong>CÔNG TY TNHH GIẢI PHÁP CÔNG NGHỆ TRỰC TUYẾN PVM</strong>
+									Tài khoản bán: <strong>Công ty TNHH Phần mềm Nhân Hòa</strong>
 								</p>
 								<p>
 									Giá khởi điểm: <strong>20,000,000 ₫</strong>

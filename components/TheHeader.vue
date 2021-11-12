@@ -130,6 +130,11 @@ export default {
 					if( this.$cookies.get('returnUrl') ){
 						window.location = this.$config.loginURL;
 					}
+					else{
+						console.log('invalid return url');
+					}
+				}else{
+					console.log('valid return url');
 				}
 			}
 			else{

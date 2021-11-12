@@ -1,5 +1,6 @@
 export function formatCurrency(number) {
     if (number === null || number === undefined) return;
+    number = parseFloat(number);
     return number.toLocaleString("vi-VN")+ " đ";
   }
   

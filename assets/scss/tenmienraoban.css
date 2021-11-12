@@ -112,8 +112,8 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    /* border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
 }
 
 .domain-names-are-for-sale .item-top-domain-names, .title-sell-domain-names {
@@ -306,13 +306,15 @@
 
 .table-sell-domain-names .table thead>tr>th {
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     padding: 15px 5px;
+    text-align: center;
 }
 
 .table-sell-domain-names .table tbody tr>td {
-    font-size: 12px;
+    font-size: 14px;
+    white-space: normal !important;
 }
 .table-sell-domain-names .table tbody tr>td>a {
     background: #D6EDFF;
