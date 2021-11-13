@@ -33,63 +33,30 @@
                                         <div class="information-user">
                                             <div class="title-information">
                                                 Thông tin cá nhân
+                                                <b-button  @click.prevent="handleEditInfo" class="float-right btn_account_edit c_b_s text-primary" variant="light"><b-icon icon="vector-pen"></b-icon> Sửa thông tin</b-button>
                                             </div>
                                             <div class="info-information">
-                                                <ul>
-                                                    <li>
-                                                        <p>
-                                                            <strong>Họ và tên:</strong> <span>Lê Na</span>
-                                                        </p>
-                                                        <a href="">Chỉnh sửa</a>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <strong>ID:</strong> <span>Lê Na</span>
-                                                        </p>
-                                                        <a href="">Chỉnh sửa</a>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <strong>Số điện thoại:</strong> <span>+84 123456789 </span>
-                                                        </p>
-                                                        <a href="">Chỉnh sửa</a>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <strong>Email:</strong> <span>lena6996@gmail.com </span>
-                                                        </p>
-                                                        <a href="">Chỉnh sửa</a>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <strong>Mật khẩu:</strong> <span>****</span>
-                                                        </p>
-                                                        <a href="">Chỉnh sửa</a>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <strong>Tài khoản liên kế:</strong> <span>facebook.com/lena6995</span>
-                                                        </p>
-                                                        <a href="">Chỉnh sửa</a>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <strong>Thống kê giao dịch:</strong> <span>2  </span>
-                                                        </p>
-                                                        <a href="">Chỉnh sửa</a>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <strong>Số dư quỹ:</strong> <span>1.000.000đ</span>
-                                                        </p>
-                                                        <a href="">Chỉnh sửa</a>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <strong>Mã khách hàng: ADD9001NH00</strong>
-                                                        </p>
-                                                    </li>
-                                                </ul>
+                                                <b-overlay :show="busy" rounded="lg" opacity="1" @hidden="onHidden">
+                                                    <template #overlay>
+                                                        <div class="d-flex align-items-center">
+                                                        <b-spinner variant="primary" label="Spinning"></b-spinner>
+                                                        <!-- We add an SR only text for screen readers -->
+                                                        <span class="sr-only">Please wait...</span>
+                                                        </div>
+                                                    </template>
+                                                    <b-list-group>
+                                                        <b-list-group-item><strong>Họ và tên:</strong> Lê Na</b-list-group-item>
+                                                        <b-list-group-item><strong>Username:</strong> Lê Na</b-list-group-item>
+                                                        <b-list-group-item><strong>Số điện thoại:</strong> +84 123456789</b-list-group-item>
+                                                        <b-list-group-item><strong>Email:</strong> lena6996@gmail.com</b-list-group-item>
+                                                        <b-list-group-item><strong>Mật khẩu:</strong> ****</b-list-group-item>
+                                                        <b-list-group-item><strong>Tài khoản Facebook:</strong> facebook.com/lena6995</b-list-group-item>
+                                                        <b-list-group-item><strong>Thống kê giao dịch:</strong> 2</b-list-group-item>
+                                                        <b-list-group-item><strong>Số dư quỹ:</strong> 1.000.000đ</b-list-group-item>
+                                                        <b-list-group-item><strong>Mã khách hàng:</strong> ADD9001NH00</b-list-group-item>
+                                                        
+                                                    </b-list-group>
+                                                </b-overlay>    
                                             </div>
                                         </div>
                                     </b-card-text>
@@ -200,7 +167,77 @@
 											</svg> Tên miền bạn cho thuê
                                     </template>
                                     <b-card-text>
-                                        Tên miền cho thuê
+                                        <template>
+                                            <div class="information-user">
+                                                <div class="title-information">
+                                                    Tên miền bạn đăng bán
+                                                </div>
+                                                <b-table :items="items" :fields="fields" fixed responsive striped  >
+                                                    <template #table-colgroup="scope">
+                                                        <col
+                                                        v-for="field in scope.fields"
+                                                        :key="field.key"
+                                                        :style="{ width: field.key === 'domain' ? '180px' : '' }"
+                                                        >
+                                                    </template>
+                                                    <template #head(record_status)="data">
+                                                        Trạng thái <br /> bảng ghi
+                                                    </template>
+
+                                                    <template #cell(actions)="row">
+                                                        
+                                                        <b-dropdown
+                                                            variant="primary"
+                                                            class="dropdown-left-custom"
+                                            
+                                                            size="xs"
+                                                        >
+                                                            <template #button-content>
+                                                                <b-icon icon="three-dots"></b-icon>
+                                                            </template>
+                                                            <b-dropdown-item href="#">Xóa</b-dropdown-item>
+                                                            <b-dropdown-item href="#">Lịch sử đấu giá</b-dropdown-item>
+                                                            <b-dropdown-item href="#">Lịch sử bình luận</b-dropdown-item>
+                                                        </b-dropdown>
+                                                        
+                                                    </template>
+                                                    <template #cell(price)="row">
+                                                        {{ formatCurrency(row.item.price) }}
+                                                    </template>
+                                                    <template #cell(status)="row">
+                                                        <b-badge class="c_b_s" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s" v-else  variant="info">Chờ xác nhận</b-badge>
+                                                    </template>
+                                                    <template #cell(record_status)="row">
+                                                        <b-badge class="c_b_s" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s text-white" v-else  variant="warning">Chờ xác nhận</b-badge>
+                                                    </template>
+                                                    <template #cell(domain)="row">
+                                                        <span class="cell_domain">{{ row.item.domain }}</span>
+                                                    </template>
+                                                    
+                                                    
+                                                    <template #row-details="row">
+                                                        <b-card class="card-table-description">
+                                                        <ul class="list-description" v-html="filterRercord(row.item)">
+                                                        
+                                                        </ul>
+                                                        </b-card>
+                                                    </template>
+                                                    
+                                                    
+
+                                                </b-table>
+                                                <div class="custom_paging">
+                                                    <b-pagination
+                                                        v-model="currentPage"
+                                                        :total-rows="rows"
+                                                        :per-page="perPage"
+                                                        aria-controls="my-table"
+                                                    ></b-pagination>
+                                                </div>
+                                            </div>
+                                        </template>
                                     </b-card-text>
                                 </b-tab>
                                 <b-tab lazy>
@@ -221,7 +258,77 @@
 											Tên miền bạn muốn mua
                                     </template>
                                     <b-card-text>
-                                        Tên miền bạn muốn mua
+                                        <template>
+                                            <div class="information-user">
+                                                <div class="title-information">
+                                                    Tên miền bạn đăng bán
+                                                </div>
+                                                <b-table :items="items" :fields="fields" fixed responsive striped  >
+                                                    <template #table-colgroup="scope">
+                                                        <col
+                                                        v-for="field in scope.fields"
+                                                        :key="field.key"
+                                                        :style="{ width: field.key === 'domain' ? '180px' : '' }"
+                                                        >
+                                                    </template>
+                                                    <template #head(record_status)="data">
+                                                        Trạng thái <br /> bảng ghi
+                                                    </template>
+
+                                                    <template #cell(actions)="row">
+                                                        
+                                                        <b-dropdown
+                                                            variant="primary"
+                                                            class="dropdown-left-custom"
+                                            
+                                                            size="xs"
+                                                        >
+                                                            <template #button-content>
+                                                                <b-icon icon="three-dots"></b-icon>
+                                                            </template>
+                                                            <b-dropdown-item href="#">Xóa</b-dropdown-item>
+                                                            <b-dropdown-item href="#">Lịch sử đấu giá</b-dropdown-item>
+                                                            <b-dropdown-item href="#">Lịch sử bình luận</b-dropdown-item>
+                                                        </b-dropdown>
+                                                        
+                                                    </template>
+                                                    <template #cell(price)="row">
+                                                        {{ formatCurrency(row.item.price) }}
+                                                    </template>
+                                                    <template #cell(status)="row">
+                                                        <b-badge class="c_b_s" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s" v-else  variant="info">Chờ xác nhận</b-badge>
+                                                    </template>
+                                                    <template #cell(record_status)="row">
+                                                        <b-badge class="c_b_s" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s text-white" v-else  variant="warning">Chờ xác nhận</b-badge>
+                                                    </template>
+                                                    <template #cell(domain)="row">
+                                                        <span class="cell_domain">{{ row.item.domain }}</span>
+                                                    </template>
+                                                    
+                                                    
+                                                    <template #row-details="row">
+                                                        <b-card class="card-table-description">
+                                                        <ul class="list-description" v-html="filterRercord(row.item)">
+                                                        
+                                                        </ul>
+                                                        </b-card>
+                                                    </template>
+                                                    
+                                                    
+
+                                                </b-table>
+                                                <div class="custom_paging">
+                                                    <b-pagination
+                                                        v-model="currentPage"
+                                                        :total-rows="rows"
+                                                        :per-page="perPage"
+                                                        aria-controls="my-table"
+                                                    ></b-pagination>
+                                                </div>
+                                            </div>
+                                        </template>
                                     </b-card-text>
                                 </b-tab>
                                 <b-tab lazy>
@@ -239,7 +346,77 @@
 											Theo dõi tên miền mới nhất
                                     </template>
                                     <b-card-text>
-                                        Theo dõi tên miền mới nhất
+                                        <template>
+                                            <div class="information-user">
+                                                <div class="title-information">
+                                                    Tên miền bạn đăng bán
+                                                </div>
+                                                <b-table :items="items" :fields="fields" fixed responsive striped  >
+                                                    <template #table-colgroup="scope">
+                                                        <col
+                                                        v-for="field in scope.fields"
+                                                        :key="field.key"
+                                                        :style="{ width: field.key === 'domain' ? '180px' : '' }"
+                                                        >
+                                                    </template>
+                                                    <template #head(record_status)="data">
+                                                        Trạng thái <br /> bảng ghi
+                                                    </template>
+
+                                                    <template #cell(actions)="row">
+                                                        
+                                                        <b-dropdown
+                                                            variant="primary"
+                                                            class="dropdown-left-custom"
+                                            
+                                                            size="xs"
+                                                        >
+                                                            <template #button-content>
+                                                                <b-icon icon="three-dots"></b-icon>
+                                                            </template>
+                                                            <b-dropdown-item href="#">Xóa</b-dropdown-item>
+                                                            <b-dropdown-item href="#">Lịch sử đấu giá</b-dropdown-item>
+                                                            <b-dropdown-item href="#">Lịch sử bình luận</b-dropdown-item>
+                                                        </b-dropdown>
+                                                        
+                                                    </template>
+                                                    <template #cell(price)="row">
+                                                        {{ formatCurrency(row.item.price) }}
+                                                    </template>
+                                                    <template #cell(status)="row">
+                                                        <b-badge class="c_b_s" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s" v-else  variant="info">Chờ xác nhận</b-badge>
+                                                    </template>
+                                                    <template #cell(record_status)="row">
+                                                        <b-badge class="c_b_s" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s text-white" v-else  variant="warning">Chờ xác nhận</b-badge>
+                                                    </template>
+                                                    <template #cell(domain)="row">
+                                                        <span class="cell_domain">{{ row.item.domain }}</span>
+                                                    </template>
+                                                    
+                                                    
+                                                    <template #row-details="row">
+                                                        <b-card class="card-table-description">
+                                                        <ul class="list-description" v-html="filterRercord(row.item)">
+                                                        
+                                                        </ul>
+                                                        </b-card>
+                                                    </template>
+                                                    
+                                                    
+
+                                                </b-table>
+                                                <div class="custom_paging">
+                                                    <b-pagination
+                                                        v-model="currentPage"
+                                                        :total-rows="rows"
+                                                        :per-page="perPage"
+                                                        aria-controls="my-table"
+                                                    ></b-pagination>
+                                                </div>
+                                            </div>
+                                        </template>
                                     </b-card-text>
                                 </b-tab>
                                 <b-tab lazy>
@@ -262,7 +439,39 @@
 											Cài đặt thông báo
                                     </template>
                                     <b-card-text>
-                                        Cài đặt thông báo
+                                        <div class="information-user">
+                                            <div class="title-information">
+                                                Cài đặt thông báo <br />
+                                                <p>(Gửi lúc 8h00 sáng hàng ngày)</p>
+                                            </div>
+                                            <b-list-group>
+                                                <b-list-group-item>
+                                                    Nhận thông báo qua điện thoại
+                                                    <b-form-checkbox class="float-right"  name="notify-checkbox" switch></b-form-checkbox>
+                                                </b-list-group-item>
+                                                <b-list-group-item>
+                                                    [Backorder] Danh sách tên miền mới đưa vào đặt giá
+                                                    <b-form-checkbox class="float-right"  name="notify-backorder-new" switch></b-form-checkbox>
+                                                </b-list-group-item>
+                                                <b-list-group-item>
+                                                    [Backorder] Danh sách tên miền chốt phiên trong ngày
+                                                    <b-form-checkbox class="float-right"  name="notify-backorder-sell" switch></b-form-checkbox>
+                                                </b-list-group-item>
+                                                <b-list-group-item>
+                                                    [Sàn tên miền] Danh sách tên miền đăng bán hàng ngày
+                                                    <b-form-checkbox class="float-right"  name="notify-sell-daily-stock" switch></b-form-checkbox>
+                                                </b-list-group-item>
+                                                <b-list-group-item>
+                                                    [Sàn tên miền] Danh sách tên miền đăng mua hàng ngày
+                                                    <b-form-checkbox class="float-right"  name="notify-buy-daily-stock" switch></b-form-checkbox>
+                                                </b-list-group-item>
+                                                <b-list-group-item>
+                                                    [Backorder] Danh sách tên miền tự do chưa được đăng ký
+                                                    <b-form-checkbox class="float-right"  name="notify-register-daily-stock" switch></b-form-checkbox>
+                                                </b-list-group-item>
+                                                
+                                            </b-list-group>
+                                        </div>
                                     </b-card-text>
                                 </b-tab>
                                 <b-tab lazy>
@@ -293,14 +502,97 @@
                 </b-row>
             </b-container>
         </div>
+        <b-modal
+        id="modal-prevent-closing"
+        ref="account-edit-modal"
+        title="Chỉnh sửa thông tin cá nhân"
+        
+        @show="resetModal"
+        @hidden="resetModal"
+        @ok="handleOk"
+        >
+        <form @submit.stop.prevent="onSubmitInfoAccount">
+            <b-form-group
+            label="Họ và tên"
+            label-for="name-input"
+            invalid-feedback="Vui lòng nhập họ tên"
+            
+            >
+                <b-form-input
+                    id="name-input"
+                    v-model="$v.form_account_info.fullname.$model"
+                    
+                    :state="validateState('fullname')"
+                    required
+                ></b-form-input>
+            </b-form-group>
+            <b-form-group
+            label="Email"
+            label-for="email-input"
+            invalid-feedback="Vui lòng nhập email"
+            
+            >
+                <b-form-input
+                    id="email-input"
+                    v-model="$v.form_account_info.email.$model"
+                    
+                    :state="validateState('email')"
+                    required
+                ></b-form-input>
+            </b-form-group>
+            <b-form-group
+            label="Số điện thoại"
+            label-for="phone-input"
+            invalid-feedback="Vui lòng nhập số điện thoại"
+            
+            >
+                <b-form-input
+                    id="phone-input"
+                    v-model="$v.form_account_info.phone.$model"
+                    
+                    :state="validateState('phone')"
+                    required
+                ></b-form-input>
+            </b-form-group>
+            
+
+
+        </form>
+        <template #modal-footer>
+            <div class="w-100">
+                <b-button
+                    
+                   
+                    class="float-right"
+                    
+                >
+                    Đóng
+                </b-button>
+                <b-button
+                    variant="primary"
+                    
+                    class="float-right mr-3"
+                    
+                >
+                    Lưu thông tin
+                </b-button>
+                
+            </div>
+        </template>
+        </b-modal>
     </div>
 </template>
 <script>
 import { formatCurrency, formatNumber } from "~/utils/number-format";
+import Vue from 'vue';
+import { validationMixin } from "vuelidate";
+import { required, minLength, email, maxLength } from "vuelidate/lib/validators";
 export default {
     middleware: 'router-auth',
+    mixins: [validationMixin],
     data(){
         return{
+            busy: false,
             tabIndex:0,
             perPage: 3,
             currentPage: 1,
@@ -324,8 +616,37 @@ export default {
 				{ key: 'publish_date', label: 'Ngày đăng' },
                 { key: "actions", label:"Hành động" },
 			
-			]
+			],
+            name: '',
+            nameState: null,
+            submittedNames: [],
+            form_account_info:{
+                fullname: '',
+                phone: '',
+                email: '',
+                
+            }
         }
+    },
+    validations: {
+        form_account_info: {
+            fullname: {
+                required,
+                minLength: minLength(5)
+            },
+            phone: {
+                required,
+                minLength: minLength(10),
+                maxLength: minLength(15),
+            },
+            email: {
+                required,
+                email
+            },
+        }
+    },
+    beforeDestroy() {
+      this.clearTimeout()
     },
     computed: {
       state() {
@@ -336,10 +657,62 @@ export default {
       }
       
     },
+    mounted(){
+        this.onClick();
+    },
     methods:{
         formatCurrency,
-        async loadTabData(idx){
-            console.log(idx);
+        validateState(name) {
+            const { $dirty, $error } = this.$v.form_account_info[name];
+            return $dirty ? !$error : null;
+            },
+            async loadTabData(idx){
+                console.log(idx);
+            },
+            //overlay demo
+            clearTimeout() {
+            if (this.timeout) {
+            clearTimeout(this.timeout)
+            this.timeout = null
+            }
+        },
+        setTimeout(callback) {
+            this.clearTimeout()
+            this.timeout = setTimeout(() => {
+            this.clearTimeout()
+            callback()
+            }, 3000)
+        },
+        onHidden() {
+            // Return focus to the button
+            
+        },
+        onClick() {
+            this.busy = true
+            // Simulate an async request
+            this.setTimeout(() => {
+            this.busy = false
+            })
+        },
+        async handleEditInfo(){
+            this.$refs['account-edit-modal'].show()
+        },
+        resetModal() {
+            this.form_account_info.fullname = ''
+            this.nameState = null
+        },
+        handleOk(bvModalEvt) {
+            // Prevent modal from closing
+            bvModalEvt.preventDefault()
+            // Trigger submit handler
+            //this.onSubmitInfoAccount()
+        },
+        async onSubmitInfoAccount(){
+            this.$v.form.$touch();
+            if (this.$v.form.$anyError) {
+                return;
+            }
+
         }
     }
 }
