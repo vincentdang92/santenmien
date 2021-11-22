@@ -1,5 +1,5 @@
 <template lang="">
-    <div id="header">
+    <div id="header" v-if="false">
         <div class="header-top">
             <b-container>
                 <b-row>
@@ -192,8 +192,7 @@
 									<b-nav-item style="cursor:pointer">Cho thuê tên miền</b-nav-item>
 									<b-nav-item href="/chinh-sach.html">Chính sách</b-nav-item>
 									<b-nav-item href="#">Hướng dẫn giao dịch</b-nav-item>
-									<!-- <b-nav-item href="#">Đăng nhập</b-nav-item>
-									<b-nav-item href="#">Đăng ký</b-nav-item> -->
+									
 									
 								</b-navbar-nav>
 							</b-collapse>
