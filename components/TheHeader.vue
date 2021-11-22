@@ -89,7 +89,7 @@
 											<b-badge class="badge_notify" variant="danger">12</b-badge>
 										</template>
 										<b-dropdown-item class="notify_list notify_list_title " href="/">
-											<!-- <div class="notify_list_content">
+											<div class="notify_list_content">
 												<div class="notify_list_content_icon">
 													Thông báo
 												</div>
@@ -97,10 +97,10 @@
 													<a class="mark_all_read">Đánh dấu tất cả đã đọc</a>
 												</div>
 												
-											</div> -->
+											</div>
 										</b-dropdown-item>
 										<b-dropdown-item  class="notify_list notify_list_main" href="/">
-											<!-- <div class="notify_list_content">
+											<div class="notify_list_content">
 												<div class="notify_list_content_icon">
 													<b-icon variant="primary" class="mr-2" icon="chat-right-dots-fill"></b-icon>
 												</div>
@@ -112,11 +112,11 @@
 													 11/14/21 9:01 AM
 												</div>
 												
-											</div> -->
+											</div>
 											
 										</b-dropdown-item>
 										<b-dropdown-item  class="notify_list notify_list_main" href="/">
-											<!-- <div class="notify_list_content">
+											<div class="notify_list_content">
 												<div class="notify_list_content_icon">
 													<b-icon variant="primary" class="mr-2" icon="chat-right-dots-fill"></b-icon>
 												</div>
@@ -128,11 +128,11 @@
 													 11/14/21 9:01 AM
 												</div>
 												
-											</div> -->
+											</div>
 											
 										</b-dropdown-item>
-										<b-dropdown-item  class="text-center" href="/">
-											<!-- <nuxt-link  to="/">Xem tất cả</nuxt-link> -->
+										<b-dropdown-item  class="text-center">
+											<nuxt-link  to="/">Xem tất cả</nuxt-link>
 										</b-dropdown-item>
 										
 									</b-nav-item-dropdown>
@@ -148,7 +148,7 @@
 								</b-navbar-nav>
 							</b-collapse>
 						</b-navbar>
-						<b-sidebar id="sidebar-1"  shadow>
+						<!-- <b-sidebar id="sidebar-1"  shadow>
 							<div class="" id="sidebar_mobile_menu">
 								<ul>
 									<li>
@@ -169,7 +169,7 @@
 									
 								</ul>
 							</div>
-						</b-sidebar>
+						</b-sidebar> -->
 					</b-col>
                 </b-row>
             </b-container>
