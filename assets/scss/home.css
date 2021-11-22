@@ -858,7 +858,7 @@ div#popup-message .modal-content .modal-body .item-popup h2 {
     }
 
     .form-group input, .form-group select,  .input-search-domain .btn-submit {
-        height: 40px !IMPORTANT;
+        height:60px !important;
     }
 
     .input-search-domain .form-group {
@@ -940,31 +940,40 @@ div#popup-message .modal-content .modal-body .item-popup h2 {
         margin-bottom: 5px;
     }
     .search-input button {
-        height: 34px;
+        height: 50px;
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+        position: relative;
     }
     .item-details-domain-names.details-domain-names-left {
         margin-bottom: 20px;
     }
     .info-sell-domain-names .row>div:nth-child(3), .info-sell-domain-names .row>div:nth-child(4) {
-        flex: 0 0 44% !important;
-        max-width: 44% !important;
+        /* flex: 0 0 44% !important;
+        max-width: 44% !important; */
     }
 
     .info-sell-domain-names .row>div:nth-child(2) {
-        flex: 0 0 40% !important;
+        /* flex: 0 0 40% !important;
         max-width: 40% !important;
-        margin-bottom: 15px;
+        margin-bottom: 15px; */
     }
 
-    .info-sell-domain-names .row>div:nth-child(1) {flex: 0 0 60%;max-width: 60%;margin-bottom: 15px;}
+    .info-sell-domain-names .row>div:nth-child(1) {
+        /* flex: 0 0 60%;max-width: 60%;margin-bottom: 15px; */
+    }
 
     .info-sell-domain-names {
         padding: 15px;
     }
 
     .info-sell-domain-names .row>div:last-child {
-        flex: 0 0 12% !important;
-        max-width: 12% !important;
+        /* flex: 0 0 12% !important;
+        max-width: 12% !important; */
+    }
+    .info-sell-domain-names .form-group label{
+        margin: .5em 0;
     }
 }
 

@@ -14,7 +14,7 @@
                     <b-form class="notfound-search">
                       <b-form-group>
                           
-                          <nuxt-link class="btn btn-submit btn_search c_b_s btn-primary" to="/"><b-icon icon="house-fill"></b-icon>  Trang chủ</nuxt-link>
+                          <nuxt-link class="btn btn-submit btn_search c_b_s btn-primary" to="/"><b-icon icon="house-door-fill"></b-icon>  Trang chủ</nuxt-link>
                       </b-form-group>
                     </b-form>
                   </div>

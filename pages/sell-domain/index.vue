@@ -67,12 +67,12 @@
                                 </b-col>    
                                 <b-col class="pb-0" cols="12" lg="1" sm="1">
                                     <div class="btn-add">
-                                        <b-button variant="default" @click.prevent="addMoreDomain" ><b-icon  icon="plus-circle-fill" ></b-icon></b-button>
+                                        <b-button class="text-white ml-2" variant="primary" @click.prevent="addMoreDomain" > <b-icon icon="plus-circle-fill"></b-icon></b-button>
                                     </div>
                                 </b-col>
-                                <b-col cols="12" xs="12" lg="12">
+                                <b-col cols="12" md="12" lg="12">
                                     <div class="row_sell">
-                                        <b-table   class="mt-4" striped hover :items="item_domains" :fields="field_domains">
+                                        <b-table head-variant="light" class="mt-4" striped hover :items="item_domains" :fields="field_domains" responsive="sm">
                                             <template #cell(index)="data">
                                                 {{ data.index + 1 }}
                                             </template>
@@ -83,7 +83,6 @@
                                                 {{ formatCurrency(row.item.buy_price) }}
                                             </template>
                                             <template #cell(career)="row">
-                                                
                                                 <b-badge v-if="row.item" pill variant="primary">{{ row.item.career == 1 ? 'Bất động sản' : 'Công nghệ' }}</b-badge>
                                             </template>
 
@@ -113,7 +112,7 @@
         <div class="bottom-sell-domain-names mt-50">
             <b-container>
                 <div class="table-sell-domain-names">
-                    <b-table  :items="items" :fields="fields" fixed responsive striped >
+                    <b-table   :items="items" :fields="fields"  responsive="sm" striped >
                     <!-- <template #thead-top="data">
                         <b-tr>
                             <b-th><span class="sr-only"></span>Tên miền</b-th>
