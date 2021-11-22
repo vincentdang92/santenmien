@@ -79,6 +79,11 @@ module.exports =  {
         path: '/dang-ky.html',
         component: resolve(__dirname, 'pages/register/index.vue')
       });
+      routes.push({
+        name: 'chinh-sach',
+        path: '/chinh-sach.html',
+        component: resolve(__dirname, 'pages/policy/index.vue')
+      });
       
       
     }
