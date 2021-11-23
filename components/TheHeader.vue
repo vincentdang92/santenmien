@@ -1,5 +1,5 @@
 <template lang="">
-    <div id="header" >
+    <div id="header">
         <div class="header-top">
             <b-container>
                 <b-row>
@@ -61,14 +61,14 @@
 						</div>
                     </b-col> -->
 					<b-col cols="12" lg="12" md="12">
-						<b-navbar  class="top_menu" toggleable="sm" type="light" >
+						<b-navbar class="top_menu" toggleable="sm"  type="light" >
 							<b-navbar-brand class="home_brand">
 								<nuxt-link to="/">
 									<b-img src="@/assets/images/logo.png" fluid-grow alt="Logo"></b-img>
 								</nuxt-link>
 							</b-navbar-brand>
 							
-							<!-- <b-navbar-toggle target="nav-collapse"></b-navbar-toggle> -->
+							<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
 							<b-collapse id="nav-collapse" is-nav>
 								<!-- Right aligned nav items -->
@@ -83,59 +83,36 @@
 									<!-- <b-nav-item class="btn_top_menu c_b_s" href="/supports">
 										<b-icon icon="headset"></b-icon> Hỗ trợ
 									</b-nav-item> -->
-									<!-- <b-nav-item-dropdown v-if="isAuthenticated " class="notify_menu ml-2" right>
+									<b-nav-item-dropdown v-if="isAuthenticated " class="notify_menu ml-2" right>
 										<template #button-content>
 											<b-icon  icon="bell-fill"></b-icon>
 											<b-badge class="badge_notify" variant="danger">12</b-badge>
 										</template>
-										<b-dropdown-item class="notify_list notify_list_title " href="/">
-											<div class="notify_list_content">
-												<div class="notify_list_content_icon">
-													Thông báo
-												</div>
-												<div class="notify_list_content_time">
-													<a class="mark_all_read">Đánh dấu tất cả đã đọc</a>
-												</div>
-												
-											</div>
-										</b-dropdown-item>
-										<b-dropdown-item  class="notify_list notify_list_main" href="/">
-											<div class="notify_list_content">
-												<div class="notify_list_content_icon">
-													<b-icon variant="primary" class="mr-2" icon="chat-right-dots-fill"></b-icon>
-												</div>
-												<div class="notify_list_content_middle">
-													<strong style="margin-bottom:5px; font-size:14px;">Sàn tên miền</strong>
-													<p>Tên miền nhanhoa.com chưa xác nhận bản ghi.Tên miền nhanhoa.com chưa xác nhận bản ghi</p>
-												</div>
-												<div class="notify_list_content_time">
-													 11/14/21 9:01 AM
-												</div>
-												
-											</div>
+										<b-dropdown-item class="notify_list notify_list_title " href="/" :html="test">
 											
-										</b-dropdown-item>
-										<b-dropdown-item  class="notify_list notify_list_main" href="/">
-											<div class="notify_list_content">
-												<div class="notify_list_content_icon">
-													<b-icon variant="primary" class="mr-2" icon="chat-right-dots-fill"></b-icon>
-												</div>
-												<div class="notify_list_content_middle">
-													<strong style="margin-bottom:5px; font-size:14px;">Sàn tên miền</strong>
-													<p>Tên miền nhanhoa.com chưa xác nhận bản ghi.Tên miền nhanhoa.com chưa xác nhận bản ghi</p>
-												</div>
-												<div class="notify_list_content_time">
-													 11/14/21 9:01 AM
-												</div>
-												
-											</div>
-											
-										</b-dropdown-item>
-										<b-dropdown-item  class="text-center">
-											<nuxt-link  to="/">Xem tất cả</nuxt-link>
 										</b-dropdown-item>
 										
-									</b-nav-item-dropdown> -->
+										<b-dropdown-item v-for="n in 2" :key="n"  class="notify_list notify_list_main" href="/" >
+											<div class="notify_list_content">
+												<div class="notify_list_content_icon">
+													<b-icon variant="primary" class="mr-2" icon="chat-right-dots-fill"></b-icon>
+												</div>
+												<div class="notify_list_content_middle">
+													<strong style="margin-bottom:5px; font-size:14px;">Sàn tên miền</strong>
+													<p>Tên miền nhanhoa.com chưa xác nhận bản ghi.Tên miền nhanhoa.com chưa xác nhận bản ghi</p>
+												</div>
+												<div class="notify_list_content_time">
+													11/14/21 9:01 AM
+												</div>
+												
+											</div>
+											
+										</b-dropdown-item>
+										<b-dropdown-item  class="text-center" href="/">
+											Xem tất cả
+										</b-dropdown-item>
+										
+									</b-nav-item-dropdown>
 
 									<b-nav-item-dropdown v-if="isAuthenticated " right>
 										<!-- Using 'button-content' slot -->
@@ -179,11 +156,11 @@
 				<b-row>
 					<b-col cols="12">
 						<b-navbar class="main_menu" toggleable="sm" type="dark" variant="primary">
-							<!-- <b-navbar-toggle target="nav-collapse11">
-								<b-button v-b-toggle.sidebar-1>
+							<b-navbar-toggle target="nav-collapse11" v-b-toggle.sidebar-1>
+								<!-- <b-button v-b-toggle.sidebar-1>
 									<b-icon icon="justify"></b-icon>
-								</b-button>
-							</b-navbar-toggle> -->
+								</b-button> -->
+							</b-navbar-toggle>
 							<b-collapse id="nav-collapse1" is-nav>
 								<b-navbar-nav>
 									<b-nav-item to="/">Trang chủ</b-nav-item>
@@ -192,7 +169,8 @@
 									<b-nav-item style="cursor:pointer">Cho thuê tên miền</b-nav-item>
 									<b-nav-item href="/chinh-sach.html">Chính sách</b-nav-item>
 									<b-nav-item href="#">Hướng dẫn giao dịch</b-nav-item>
-									
+									<!-- <b-nav-item href="#">Đăng nhập</b-nav-item>
+									<b-nav-item href="#">Đăng ký</b-nav-item> -->
 									
 								</b-navbar-nav>
 							</b-collapse>
@@ -205,6 +183,19 @@
 </template>
 <script>
 export default {
+	data(){
+		return{
+			test: `<div class="notify_list_content">
+				<div class="notify_list_content_icon">
+					Thông báo
+				</div>
+				<div class="notify_list_content_time">
+					<a class="mark_all_read">Đánh dấu tất cả đã đọc</a>
+				</div>
+				
+			</div>`,
+		}
+	},
     computed:{
 		isAuthenticated() {
 			return this.$store.getters['auth/isAuthenticated']
