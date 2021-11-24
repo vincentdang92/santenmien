@@ -88,14 +88,14 @@
 											<b-icon  icon="bell-fill"></b-icon>
 											<b-badge class="badge_notify" variant="danger">12</b-badge>
 										</template>
-										<b-dropdown-item class="notify_list notify_list_title " href="/" :html="test">
-											
+										<b-dropdown-item class="notify_list notify_list_title " href="/" >
+											<span>Thông báo</span> <span>Xem tất cả</span>
 										</b-dropdown-item>
 										
 										<b-dropdown-item v-for="n in 2" :key="n"  class="notify_list notify_list_main" href="/" >
 											<div class="notify_list_content">
 												<div class="notify_list_content_icon">
-													<b-icon variant="primary" class="mr-2" icon="chat-right-dots-fill"></b-icon>
+													<b-icon variant="primary" class="mr-2" icon="bell-fill"></b-icon>
 												</div>
 												<div class="notify_list_content_middle">
 													<strong style="margin-bottom:5px; font-size:14px;">Sàn tên miền</strong>
@@ -178,6 +178,7 @@
 					</b-col>
 				</b-row>
 			</b-container>
+			 
         </div>
     </div>
 </template>
@@ -199,7 +200,11 @@ export default {
     computed:{
 		isAuthenticated() {
 			return this.$store.getters['auth/isAuthenticated']
-		}
+		},
+		userAgent() {
+			return this.$store.getters['userAgent']
+		},
+		
 	},
 	methods:{
 		async handleLogout() {

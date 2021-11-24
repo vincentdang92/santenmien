@@ -20,7 +20,7 @@
                                         label-for="input-formatter"
                                         >
                                         <b-form-input
-                                            id="input-formatter"
+                                            id="input-domain"
                                             v-model="form.domain"
                                             placeholder="Tên miền muốn bán"
                                             
@@ -43,25 +43,25 @@
                                         label-for="input-formatter"
                                         >
                                         <b-form-input
-                                            type="number"
-                                            id="input-formatter"
+                                            type="text"
+                                            id="input-start_price"
                                             v-model="form.start_price"
                                             :min="0"
-                                            
+                                            :formatter="formatValueToPrice"
                                         ></b-form-input>
                                     </b-form-group>
                                 </b-col>
                                 <b-col cols="12" lg="2" sm="2">
                                      <b-form-group
                                         label="Giá mua ngay"
-                                        label-for="input-formatter"
+                                        label-for="input-buy_price"
                                         >
                                         <b-form-input
-                                            type="number"
-                                            id="input-formatter"
+                                            type="text"
+                                            id="input-buy_price"
                                             v-model="form.buy_price"
                                             :min="0"
-                                            
+                                            :formatter="formatValueToPrice"
                                         ></b-form-input>
                                     </b-form-group>
                                 </b-col>    
@@ -169,7 +169,7 @@
 <script>
 import FAQ from "@/components/FAQ";
 import WhyUs from "@/components/WhyUs";
-  import { formatCurrency, formatNumber } from "~/utils/number-format";
+import { formatCurrency, formatNumber, checkValidDomain  } from "~/utils/libs";
 
 export default {
     components: { FAQ, WhyUs },
@@ -227,8 +227,8 @@ export default {
         form:{
             domain: '',
             career: null,
-            start_price: 1000000,
-            buy_price: 5000000,
+            start_price: this.formatNumber(1000000),
+            buy_price: this.formatNumber(5000000),
         },
         selected: [],
         item_domain_length: 0
@@ -237,9 +237,11 @@ export default {
     },
     methods:{
         formatCurrency,
+        checkValidDomain,
+        formatNumber,
         addMoreDomain(event){
             event.preventDefault();
-            let check_domain = /^(([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]|[a-zA-Z0-9])\.)*[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/.test(this.form.domain);
+            let check_domain = checkValidDomain(this.form.domain);
             if(this.form.domain.length == 0 || !check_domain){
                 this.$store.dispatch('snackbar/setSnackbar', {type: 'warning', text:'Vui lòng nhập tên miền đúng định dạng'});
                 return;
@@ -248,18 +250,25 @@ export default {
                 this.$store.dispatch('snackbar/setSnackbar', {type: 'warning', text:'Vui lòng chọn lĩnh vực'});
                 return;
             }
+            let check_exist_domain = this.item_domains.filter(item => item.domain === this.form.domain);
+            if(check_exist_domain.length > 0){
+                check_exist_domain = check_exist_domain[0];
+                this.$store.dispatch('snackbar/setSnackbar', {type: 'warning', text:`Đã có tên miền ${check_exist_domain.domain}`});
+                return;
+            }
+            
             let key = this.item_domain_length;
             this.item_domains.push(
                 {
                     key : key,
                     domain : this.form.domain,
                     career : this.form.career,
-                    start_price : this.form.start_price,
-                    buy_price : this.form.buy_price,
+                    start_price : this.form.start_price.replace(/\./gi,""),
+                    buy_price : this.form.buy_price.replace(/\./gi,""),
                 }
             );
             this.item_domain_length++;
-            console.log(this.item_domains);
+            
             this.resetForm();
         },
         async onSubmit(event){
@@ -275,6 +284,12 @@ export default {
             console.log(key);
             let result = this.item_domains.filter(item => item.key != key);
             this.item_domains = result;
+        },
+        formatValueToPrice(value){
+           value = value.replace(/\./g, "");
+            //value = parseFloat(value);
+            console.log(value, 'test');//
+           return this.formatNumber(value);
         }
     }
 }

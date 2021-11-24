@@ -583,7 +583,7 @@
     </div>
 </template>
 <script>
-import { formatCurrency, formatNumber } from "~/utils/number-format";
+import { formatCurrency, formatNumber } from "~/utils/libs";
 import Vue from 'vue';
 import { validationMixin } from "vuelidate";
 import { required, minLength, email, maxLength } from "vuelidate/lib/validators";

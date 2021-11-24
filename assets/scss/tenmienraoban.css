@@ -73,13 +73,13 @@
         max-width: 15%;
     }
     .session-career-domain>.container>.row>div:nth-child(1) {
-        flex: 0 0 20%;
-        max-width: 20%;
+        /* flex: 0 0 20%;
+        max-width: 20%; */
     }
 
     .session-career-domain>.container>.row>div:nth-child(2) {
-        flex: 0 0 80%;
-        max-width: 80%;
+        /* flex: 0 0 80%;
+        max-width: 80%; */
     }
 }
 
