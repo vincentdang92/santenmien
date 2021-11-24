@@ -6,7 +6,11 @@ export function formatCurrency(number) {
   
   export function formatNumber(number) {
     if (number === null || number === undefined) return;
-    return new Intl.NumberFormat('vi-VI', { style: 'decimal'}).format(number)
+    return new Intl.NumberFormat('vi-VI').format(number);
+  }
+  export function checkValidDomain(text) {
+    if (text === null || text === undefined) return;
+    return /^(([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]|[a-zA-Z0-9])\.)*[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/.test(text);
   }
   
   

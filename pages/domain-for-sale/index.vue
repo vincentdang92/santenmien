@@ -58,12 +58,18 @@
         <div class="session-career-domain pt-50 pb-50">
             <b-container>
                 <b-row>
-                    <b-col lg="3" sm="12" cols="12" >
+                    <b-col  lg="3" sm="12" md="3" cols="12" >
                         <div class="item-career-left" :style="{ minHeight: boxHeight }">
                             <div class="title-career">
                               Ngành nghề
                             </div>
                             <div class="info-career">
+                                <b-form-input
+                                    id="input-filter"
+                                    v-model="filter"
+                                    placeholder="Enter name"
+                                    
+                                    ></b-form-input>
                                 <b-form-group
                                 v-slot="{ ariaDescribedby }"
                                 >
@@ -82,7 +88,7 @@
                             </div>
                         </div>
                     </b-col>
-                    <b-col lg="9" sm="12" cols="12" ref="boxSaleDomain">
+                    <b-col lg="9" md="9" sm="12" cols="12" ref="boxSaleDomain">
                         <div class="domain-names-are-for-sale">
                             <div class="item-top-domain-names">
                                 <b-row>
@@ -101,11 +107,45 @@
                                           <nuxt-link class="" to="/dang-ban-ten-mien.html">Đăng bán tên miền</nuxt-link>
                                         </div>
                                     </b-col>
-                                    
+                                    <!-- <b-col cols="12"> 
+                                        <div class="filter_area">
+                                            <b-form-group
+                                            
+                                                label="Lọc theo ngành nghề"
+                                                
+                                                >
+                                                <b-form-checkbox-group
+                                                    v-model="filter_selected"
+                                                    :aria-describedby="ariaDescribedby"
+                                                    class="mt-1"
+                                                >
+                                                    <b-form-checkbox
+                                                        v-for="option in option_filter"
+                                                        v-model="filter_selected"
+                                                        :key="option.value"
+                                                        :value="option.value"
+                                                        :aria-describedby="ariaDescribedby"
+                                                        name="flavour-4a"
+                                                        inline
+                                                    >
+                                                        {{ option.text }}
+                                                    </b-form-checkbox>
+                                                </b-form-checkbox-group>
+                                            </b-form-group>
+                                        </div>
+                                    </b-col> -->
                                 </b-row>
                             </div>
                             <div class="item-mid-domain-names">
-                                <b-table  :items="items" :fields="fields" responsive="xs" >
+                                <b-table 
+                                    :filter-included-fields="filter_selected"  
+                                    :items="items" 
+                                    :fields="fields" 
+                                    :filter="filter"
+                                    @filtered="onFiltered"
+                                    responsive="sm" 
+
+                                >
                                    
                                     <template #cell(id)="row">
                                         
@@ -161,7 +201,7 @@
 <script>
   import Vue from 'vue';
   import RangeSlider from '@vueform/slider/dist/slider.vue2.js';
-  import { formatCurrency, formatNumber } from "~/utils/number-format";
+  import { formatCurrency, formatNumber } from "~/utils/libs";
   import FAQ from "@/components/FAQ";
   import WhyUs from "@/components/WhyUs";
   Vue.use(RangeSlider);  
@@ -183,6 +223,7 @@
     data() {
       return {
         range_slider_value: [1,60],
+        filter:null,   
         totalRows:1,
         perPage: 3,
         currentPage: 1,
@@ -228,10 +269,10 @@
             
         ],
         items: [
-          { domain: 'master-bo.com', year: 1, backlink: 12, expired_date: '05/08/2021',start_price : 100000000,buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.' },
-          { domain: "forex101.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Công ty 1'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: 'master-bo.com', year: 1, carreer:'FINANCE', backlink: 12, expired_date: '05/08/2021',start_price : 100000000,buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.' },
+          { domain: "forex101.com", year: 1, carreer:'FINANCE',  backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Công ty 1'  },
+          { domain: "shoponline.com", year: 1, carreer:'SHOPPING',  backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { domain: "playgame247.com", year: 1,carreer:'GAME', backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
@@ -266,7 +307,13 @@
             let height = this.$refs.boxSaleDomain.clientHeight;
             height = height.toString();
             this.boxHeight = height+"px";
-        }
+        },
+        onFiltered(filteredItems) {
+            // Trigger pagination to update the number of buttons/pages due to filtering
+            this.totalRows = filteredItems.length;
+            this.currentPage = 1
+        },
+        
         
     }
   }

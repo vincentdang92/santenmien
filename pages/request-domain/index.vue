@@ -61,7 +61,7 @@
                                         v-model="tags"
                                         :tag-validator="validator"
                                         placeholder="Nhập từ khóa (tối thiểu 3 ký tự)"
-                                        separator=" "
+
                                         @tag-state="onTagState"
                                         duplicateTagText="Đã có từ khóa"
                                         addButtonText="Thêm"
@@ -75,7 +75,7 @@
                                         
                                     >
                                     <template #add-button-text>
-                                        <b-icon icon="plus-circle"></b-icon>
+                                        <b-icon icon="plus-circle-fill"></b-icon>
                                     </template>
                                     </b-form-tags>
                                     
@@ -83,30 +83,34 @@
                                     <b-tooltip target="input-keywords-tooltips" variant="success" triggers="hover">Giúp tìm kiếm tên miền nhanh hơn với các từ khóa liên quan</b-tooltip>
                                 </b-form-group>
                                 <b-row>
-                                    <b-col xs="5" lg="5">
+                                    <b-col xs="4" lg="4" cols="12">
                                         <b-form-group
                                          label="Thuộc lĩnh vực"
                                         >
                                             <b-form-select   v-model="selected_career" :options="option_career"></b-form-select>
                                         </b-form-group>
                                     </b-col>
-                                    <b-col xs="1" lg="1">
-                                       
-                                    </b-col>
-                                    <b-col col cols="10" lg="6">
+                                    
+                                    <!-- <b-col  cols="10" lg="6">
                                         <b-form-group
-                                         label="Khoảng giá"
+                                         label="Chọn khoảng giá"
                                         >
                                             <RangeSlider
                                                 style="margin-top:40px;"
                                                 v-model="range_slider_value"
                                                 :min="1000000"
-                                                :max="100000000"
-                                                :step="5000000"
+                                                :max="100000000000"
+                                                :step="1000000"
                                                 :format="formatRangePrice"
                                                 class="slider-blue"
                                             />
                                         </b-form-group>
+                                    </b-col> -->
+                                    <b-col cols="6" md="4">
+                                        
+                                    </b-col>
+                                    <b-col cols="6" md="4">
+
                                     </b-col>
                                     <b-col cols="12" class="text-center">
                                          <p class="note">
@@ -129,6 +133,7 @@
 <script>
 import {mapState, mapGetters} from "vuex";
 import Vue from 'vue';
+import { formatCurrency, formatNumber, checkValidDomain  } from "~/utils/libs";
 import RangeSlider from '@vueform/slider/dist/slider.vue2.js';
 import FAQ from "@/components/FAQ";
 import WhyUs from "@/components/WhyUs";
@@ -172,6 +177,7 @@ export default {
        ...mapState('auth', ['userToken'])
     },
     methods:{
+        checkValidDomain,
         priceRange(price){
             return price.toLocaleString("vi-VN");
         },

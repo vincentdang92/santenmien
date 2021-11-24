@@ -265,8 +265,8 @@ dl, ol, ul {
 }
 
 .box-domain .title-domain, .title-item-details-domain-names {
-    height: 105px;
-    line-height: 105px;
+    height: 80px;
+    line-height: 80px;
     text-align: center;
     font-size: 24px;
     margin-bottom: 0;
