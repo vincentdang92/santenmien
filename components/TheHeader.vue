@@ -89,10 +89,11 @@
 											<b-badge class="badge_notify" variant="danger">12</b-badge>
 										</template>
 										<b-dropdown-item class="notify_list notify_list_title " href="/" >
-											<span>Thông báo</span> <span>Xem tất cả</span>
+											<span>Thông báo</span> <span><b-icon icon="check-all"></b-icon></span>
 										</b-dropdown-item>
 										
-										<b-dropdown-item v-for="n in 2" :key="n"  class="notify_list notify_list_main" href="/" >
+										<div class="notify_content">
+											<b-dropdown-item v-for="n in 2" :key="n"  class="notify_list notify_list_main" href="/" >
 											<div class="notify_list_content">
 												<div class="notify_list_content_icon">
 													<b-icon variant="primary" class="mr-2" icon="bell-fill"></b-icon>
@@ -108,6 +109,7 @@
 											</div>
 											
 										</b-dropdown-item>
+										</div>
 										<b-dropdown-item  class="text-center" href="/">
 											Xem tất cả
 										</b-dropdown-item>

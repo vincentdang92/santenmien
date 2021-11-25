@@ -10,7 +10,7 @@
                 <div class="search-input">
                   <b-form @submit.stop.prevent="onSubmit">
                     
-                    <b-form-group  v-slot="{ ariaDescribedby }">
+                    <b-form-group :class="{ 'form-group--error': $v.form.search.$error }"  v-slot="{ ariaDescribedby }">
                         
                         <b-form-input
                             id="search-domain-input"
@@ -187,10 +187,11 @@ export default {
       });
     },
     onSubmit() {
-      this.$v.form.$touch();
+      this.$v.$touch();
       if (this.$v.form.$anyError) {
         return;
       }
+      //send data
       //alert('success');
       this.$store.dispatch('snackbar/setSnackbar', {type: 'success', text:this.form.search});
       

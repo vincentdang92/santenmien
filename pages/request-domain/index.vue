@@ -5,7 +5,7 @@
                 <div class="item-buy-domain-name">
                     <div class="title-buy-domain-name">
 						<h3>
-							Gửi yêu cầu mua tên miền {{ userToken }}
+							Gửi yêu cầu mua tên miền
 						</h3>
 						<p>
 							Nếu Quý khách gặp khó khăn khi phải trỏ bản ghi nhiều tên miền, vui lòng gửi danh sách tên miền về địa chỉ  santenmien@nhanhoa.com để chúng tôi hỗ trợ đăng tên miền.
@@ -106,11 +106,38 @@
                                             />
                                         </b-form-group>
                                     </b-col> -->
-                                    <b-col cols="6" md="4">
-                                        
+                                    <b-col cols="12" md="4">
+                                        <b-form-group
+                                            label="Giá tiền từ"
+                                            label-for="input-domain-name"
+                                            >
+                                            <b-input-group append="đ">
+                                                <b-form-input
+                                                    id="input-from-price"
+                                                    v-model="from_price"
+                                                    placeholder="Nhập số tiền"
+                                                    
+                                                ></b-form-input>
+                                            </b-input-group>
+                                        </b-form-group>
                                     </b-col>
-                                    <b-col cols="6" md="4">
+                                    <b-col cols="12" md="4">
+                                        <b-form-group
+                                            label="Đến"
+                                            label-for="input-domain-name"
+                                            
+                                            >
+                                            <b-input-group append="đ">
+                                                <b-form-input
 
+                                                    id="input-to-price"
+                                                    v-model="to_price"
+                                                    placeholder="Nhập số tiền"
+                                                    
+                                                ></b-form-input>
+                                            </b-input-group>
+                                           
+                                        </b-form-group>
                                     </b-col>
                                     <b-col cols="12" class="text-center">
                                          <p class="note">
@@ -135,6 +162,8 @@ import {mapState, mapGetters} from "vuex";
 import Vue from 'vue';
 import { formatCurrency, formatNumber, checkValidDomain  } from "~/utils/libs";
 import RangeSlider from '@vueform/slider/dist/slider.vue2.js';
+import { validationMixin } from "vuelidate";
+import { required, minLength } from "vuelidate/lib/validators";
 import FAQ from "@/components/FAQ";
 import WhyUs from "@/components/WhyUs";
 Vue.use(RangeSlider);
@@ -148,6 +177,8 @@ export default {
     },
     data() {
       return {
+        from_price: this.formatNumber(1000000),
+        to_price:this.formatNumber(10000000),
         range_slider_value: [1000000,40000000],
         single_domain:'',
         multi_domain:'',
@@ -174,10 +205,15 @@ export default {
       }
     },
     computed:{
-       ...mapState('auth', ['userToken'])
+    //    ...mapState('auth', ['userToken'])
     },
     methods:{
+        formatNumber,
         checkValidDomain,
+        validateState(name) {
+            const { $dirty, $error } = this.$v.form[name];
+            return $dirty ? !$error : null;
+        },
         priceRange(price){
             return price.toLocaleString("vi-VN");
         },
@@ -208,7 +244,7 @@ export default {
 @import '@vueform/slider/themes/default.scss';
     .buy-domain-name-input{
         select{
-            height: 56px;
+            height: 45px;
         }
     }
 </style>
