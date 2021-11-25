@@ -327,14 +327,14 @@
     .domain_lenght legend {
         margin-top: -20px !important;
         display: block;
-        margin-bottom: 13px;
+        margin-bottom: 8px;
         text-align: center;
     }
 
     .domain_lenght {
         background: #fff;
         border-radius: 3px;
-        height: 56px;
+        height: 45px;
         padding: 0 16px;
     }
 

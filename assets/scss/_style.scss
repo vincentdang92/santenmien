@@ -39,10 +39,10 @@ h1, h2, h3, h4, h5{
 .form_normal{
     .form-group{
         select{
-            height: 56px;
+            height: 45px;
         }
         input{
-            height: 56px;
+            height: 45px;
         }
         
     }
@@ -131,6 +131,10 @@ h1, h2, h3, h4, h5{
     p{
         margin-bottom: 0;
     }
+}
+.notify_content{
+    overflow-y: scroll;
+    max-height: 100px;
 }
 .notify_list_content {
     display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
@@ -374,9 +378,13 @@ h1, h2, h3, h4, h5{
         
     }
 }
-.btn-add button {
-    color: #003CB4;
-    height: 56px;
+.btn-add {
+    line-height: 50px;
+    button {
+        color: #003CB4;
+        height: 43px !important;
+    
+    }
 }
 .top_menu{
     padding: 0;
@@ -475,6 +483,16 @@ h1, h2, h3, h4, h5{
         }
     }
 }
+.action_dropdown {
+    ul{
+        li{
+            padding: 5px;
+            &:hover{
+                background-color: #C5E6FF !important;
+            }
+        }
+    }
+}
 @media(max-width:768px){
     .dropdown-menu-right{
         
@@ -552,5 +570,13 @@ h1, h2, h3, h4, h5{
 @media(max-width:1024px){
     .main_menu .navbar-nav li a{
         padding: 1em !important;
+    }
+}
+@media(max-width:576px){
+    .buy-top-radio{
+        margin-bottom: 0;
+    }
+    .btn_search {
+        margin-top: 1em;
     }
 }

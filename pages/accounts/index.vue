@@ -98,8 +98,8 @@
                                                         
                                                         <b-dropdown
                                                             variant="primary"
-                                                            class="dropdown-left-custom"
-                                            
+                                                            class="dropdown-left-custom action_dropdown"
+                                                        
                                                             size="xs"
                                                         >
                                                             <template #button-content>
@@ -188,7 +188,7 @@
                                                         
                                                         <b-dropdown
                                                             variant="primary"
-                                                            class="dropdown-left-custom"
+                                                            class="dropdown-left-custom action_dropdown"
                                             
                                                             size="xs"
                                                         >
@@ -279,7 +279,7 @@
                                                         
                                                         <b-dropdown
                                                             variant="primary"
-                                                            class="dropdown-left-custom"
+                                                            class="dropdown-left-custom action_dropdown"
                                             
                                                             size="xs"
                                                         >
@@ -367,7 +367,7 @@
                                                         
                                                         <b-dropdown
                                                             variant="primary"
-                                                            class="dropdown-left-custom"
+                                                            class="dropdown-left-custom action_dropdown"
                                             
                                                             size="xs"
                                                         >

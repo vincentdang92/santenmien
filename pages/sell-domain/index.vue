@@ -93,6 +93,7 @@
                                                 
                                             </template>
                                         </b-table>
+                                        
                                     </div>
                                 </b-col>
                             </b-row>
@@ -170,8 +171,11 @@
 import FAQ from "@/components/FAQ";
 import WhyUs from "@/components/WhyUs";
 import { formatCurrency, formatNumber, checkValidDomain  } from "~/utils/libs";
+import { validationMixin } from "vuelidate";
+import { required, minLength } from "vuelidate/lib/validators";
 
 export default {
+    mixins: [validationMixin],
     components: { FAQ, WhyUs },
     computed: {
       state() {
