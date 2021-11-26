@@ -170,7 +170,7 @@
 <script>
 import FAQ from "@/components/FAQ";
 import WhyUs from "@/components/WhyUs";
-import { formatCurrency, formatNumber, checkValidDomain  } from "~/utils/libs";
+import { formatCurrency, formatNumber, checkValidDomain  } from "~/helpers/libs";
 import { validationMixin } from "vuelidate";
 import { required, minLength } from "vuelidate/lib/validators";
 

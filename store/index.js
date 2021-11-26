@@ -1,5 +1,3 @@
-
-
 const state = () => ({
   userToken: null,
   userAgent: ''

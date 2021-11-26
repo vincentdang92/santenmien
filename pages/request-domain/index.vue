@@ -160,7 +160,7 @@
 <script>
 import {mapState, mapGetters} from "vuex";
 import Vue from 'vue';
-import { formatCurrency, formatNumber, checkValidDomain  } from "~/utils/libs";
+import { formatCurrency, formatNumber, checkValidDomain  } from "~/helpers/libs";
 import RangeSlider from '@vueform/slider/dist/slider.vue2.js';
 import { validationMixin } from "vuelidate";
 import { required, minLength } from "vuelidate/lib/validators";

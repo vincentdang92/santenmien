@@ -207,5 +207,11 @@ module.exports =  {
         collapseWhitespace: true
       }
     },
-}
+  },
+  // hooks: {
+  //   'vue-renderer:ssr:context'(context) {
+  //     const routePath = JSON.stringify(context.nuxt.routePath);
+  //     context.nuxt = {serverRendered: true, routePath};
+  //   }
+  // }
 }

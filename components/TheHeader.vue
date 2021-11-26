@@ -93,14 +93,16 @@
 										</b-dropdown-item>
 										
 										<div class="notify_content">
-											<b-dropdown-item v-for="n in 2" :key="n"  class="notify_list notify_list_main" href="/" >
+											<b-dropdown-item v-for="n in 4" :key="n"  class="notify_list notify_list_main" href="/" >
 											<div class="notify_list_content">
 												<div class="notify_list_content_icon">
 													<b-icon variant="primary" class="mr-2" icon="bell-fill"></b-icon>
 												</div>
 												<div class="notify_list_content_middle">
 													<strong style="margin-bottom:5px; font-size:14px;">Sàn tên miền</strong>
-													<p>Tên miền nhanhoa.com chưa xác nhận bản ghi.Tên miền nhanhoa.com chưa xác nhận bản ghi</p>
+													<p>
+														{{ "Tên miền nhanhoa.com chưa xác nhận bản ghi.Tên miền nhanhoa.com chưa xác nhận bản ghi" | truncate(30, '...')  }}
+													</p>
 												</div>
 												<div class="notify_list_content_time">
 													11/14/21 9:01 AM
@@ -110,13 +112,13 @@
 											
 										</b-dropdown-item>
 										</div>
-										<b-dropdown-item  class="text-center" href="/">
+										<b-dropdown-item  class="text-center view_all" href="/">
 											Xem tất cả
 										</b-dropdown-item>
 										
 									</b-nav-item-dropdown>
 
-									<b-nav-item-dropdown v-if="isAuthenticated " right>
+									<b-nav-item-dropdown class="account_menu" v-if="isAuthenticated " right>
 										<!-- Using 'button-content' slot -->
 										<template #button-content>
 											<b-avatar badge  badge-variant="success" src="user.jpg"></b-avatar> Lê Thị Bé Na Na
@@ -185,6 +187,7 @@
     </div>
 </template>
 <script>
+import "@/helpers/filters";
 export default {
 	data(){
 		return{

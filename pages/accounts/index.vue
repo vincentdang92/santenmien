@@ -9,10 +9,10 @@
                             <b-tabs nav-wrapper-class="avatar_section" pills card vertical v-model="tabIndex">
                                 <b-tab  active lazy>
                                     <template #title>
-                                        <div>
+                                        <span>
                                             <b-avatar class="account_avatar" src="user.jpg" badge badge-variant="success" size="5rem"></b-avatar> 
                                             <h4 class="cus_name">Lê Na</h4>
-                                        </div>
+                                        </span>
                                         
                                         <span class="section_first_title">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -30,9 +30,9 @@
                                              Thông tin cá nhân</span>
                                     </template>
                                     <b-card-text>
-                                        <div class="information-user">
+                                        <div class="information-user infor_section">
                                             <div class="title-information">
-                                                Thông tin cá nhân
+                                                <p class="info_section__title">Thông tin cá nhân</p>
                                                 <b-button  @click.prevent="handleEditInfo" class="float-right btn_account_edit c_b_s text-primary" variant="light"><b-icon icon="vector-pen"></b-icon> Sửa thông tin</b-button>
                                             </div>
                                             <div class="info-information">
@@ -40,7 +40,7 @@
                                                     <template #overlay>
                                                         <div class="d-flex align-items-center">
                                                         <b-spinner variant="primary" label="Spinning"></b-spinner>
-                                                        <!-- We add an SR only text for screen readers -->
+                                                        
                                                         <span class="sr-only">Please wait...</span>
                                                         </div>
                                                     </template>
@@ -80,9 +80,10 @@
                                         <template>
                                             <div class="information-user">
                                                 <div class="title-information">
-                                                    Tên miền bạn đăng bán
+                                                   
+                                                    <p class="info_section__title"> Tên miền bạn đăng bán</p>
                                                 </div>
-                                                <b-table :items="items" :fields="fields" fixed responsive striped  >
+                                                <b-table :items="items" :fields="fields"   striped  responsive="sm">
                                                     <template #table-colgroup="scope">
                                                         <col
                                                         v-for="field in scope.fields"
@@ -91,7 +92,7 @@
                                                         >
                                                     </template>
                                                     <template #head(record_status)="data">
-                                                        Trạng thái <br /> bảng ghi
+                                                        Trạng thái  bảng ghi
                                                     </template>
 
                                                     <template #cell(actions)="row">
@@ -99,7 +100,7 @@
                                                         <b-dropdown
                                                             variant="primary"
                                                             class="dropdown-left-custom action_dropdown"
-                                                        
+                                                             
                                                             size="xs"
                                                         >
                                                             <template #button-content>
@@ -115,12 +116,12 @@
                                                         {{ formatCurrency(row.item.price) }}
                                                     </template>
                                                     <template #cell(status)="row">
-                                                        <b-badge class="c_b_s" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
-                                                        <b-badge class="c_b_s" v-else  variant="info">Chờ xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_success" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_info" v-else  variant="info">Chờ xác nhận</b-badge>
                                                     </template>
                                                     <template #cell(record_status)="row">
-                                                        <b-badge class="c_b_s" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
-                                                        <b-badge class="c_b_s text-white" v-else  variant="warning">Chờ xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_success" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_warning" v-else  variant="warning">Chờ xác nhận</b-badge>
                                                     </template>
                                                     <template #cell(domain)="row">
                                                         <span class="cell_domain">{{ row.item.domain }}</span>
@@ -170,9 +171,10 @@
                                         <template>
                                             <div class="information-user">
                                                 <div class="title-information">
-                                                    Tên miền bạn đăng bán
+                                                   
+                                                   <p class="info_section__title"> Tên miền bạn cho thuê</p>
                                                 </div>
-                                                <b-table :items="items" :fields="fields" fixed responsive striped  >
+                                                <b-table :items="items" :fields="fields"  responsive="sm" striped  >
                                                     <template #table-colgroup="scope">
                                                         <col
                                                         v-for="field in scope.fields"
@@ -205,12 +207,12 @@
                                                         {{ formatCurrency(row.item.price) }}
                                                     </template>
                                                     <template #cell(status)="row">
-                                                        <b-badge class="c_b_s" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
-                                                        <b-badge class="c_b_s" v-else  variant="info">Chờ xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_success" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_info" v-else  variant="info">Chờ xác nhận</b-badge>
                                                     </template>
                                                     <template #cell(record_status)="row">
-                                                        <b-badge class="c_b_s" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
-                                                        <b-badge class="c_b_s text-white" v-else  variant="warning">Chờ xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_success" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_warning" v-else  variant="warning">Chờ xác nhận</b-badge>
                                                     </template>
                                                     <template #cell(domain)="row">
                                                         <span class="cell_domain">{{ row.item.domain }}</span>
@@ -261,9 +263,10 @@
                                         <template>
                                             <div class="information-user">
                                                 <div class="title-information">
-                                                    Tên miền bạn đăng bán
+                                                    
+                                                    <p class="info_section__title"> Tên miền bạn muốn mua</p>
                                                 </div>
-                                                <b-table :items="items" :fields="fields" fixed responsive striped  >
+                                                <b-table :items="items" :fields="fields"  responsive="sm" striped  >
                                                     <template #table-colgroup="scope">
                                                         <col
                                                         v-for="field in scope.fields"
@@ -296,12 +299,12 @@
                                                         {{ formatCurrency(row.item.price) }}
                                                     </template>
                                                     <template #cell(status)="row">
-                                                        <b-badge class="c_b_s" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
-                                                        <b-badge class="c_b_s" v-else  variant="info">Chờ xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_success" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_info" v-else  variant="info">Chờ xác nhận</b-badge>
                                                     </template>
                                                     <template #cell(record_status)="row">
-                                                        <b-badge class="c_b_s" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
-                                                        <b-badge class="c_b_s text-white" v-else  variant="warning">Chờ xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_success" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_warning" v-else  variant="warning">Chờ xác nhận</b-badge>
                                                     </template>
                                                     <template #cell(domain)="row">
                                                         <span class="cell_domain">{{ row.item.domain }}</span>
@@ -349,9 +352,10 @@
                                         <template>
                                             <div class="information-user">
                                                 <div class="title-information">
-                                                    Tên miền bạn đăng bán
+                                                    
+                                                    <p class="info_section__title"> Theo dõi tên miền mới nhất</p>
                                                 </div>
-                                                <b-table :items="items" :fields="fields" fixed responsive striped  >
+                                                <b-table :items="items" :fields="fields"  responsive="sm" striped  >
                                                     <template #table-colgroup="scope">
                                                         <col
                                                         v-for="field in scope.fields"
@@ -384,12 +388,12 @@
                                                         {{ formatCurrency(row.item.price) }}
                                                     </template>
                                                     <template #cell(status)="row">
-                                                        <b-badge class="c_b_s" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
-                                                        <b-badge class="c_b_s" v-else  variant="info">Chờ xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_success" v-if="row.item.status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_info" v-else  variant="info">Chờ xác nhận</b-badge>
                                                     </template>
                                                     <template #cell(record_status)="row">
-                                                        <b-badge class="c_b_s" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
-                                                        <b-badge class="c_b_s text-white" v-else  variant="warning">Chờ xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_success" v-if="row.item.record_status == 1"  variant="success">Đã xác nhận</b-badge>
+                                                        <b-badge class="c_b_s custom_badge_warning" v-else  variant="warning">Chờ xác nhận</b-badge>
                                                     </template>
                                                     <template #cell(domain)="row">
                                                         <span class="cell_domain">{{ row.item.domain }}</span>
@@ -439,39 +443,41 @@
 											Cài đặt thông báo
                                     </template>
                                     <b-card-text>
-                                        <div class="information-user">
-                                            <div class="title-information">
-                                                Cài đặt thông báo <br />
-                                                <p>(Gửi lúc 8h00 sáng hàng ngày)</p>
+                                        <template>
+                                            <div class="information-user">
+                                                <div class="title-information">
+                                                    Cài đặt thông báo <br />
+                                                    <p>(Gửi lúc 8h00 sáng hàng ngày)</p>
+                                                </div>
+                                                <b-list-group class="notify_config_list">
+                                                    <b-list-group-item>
+                                                        <p> Nhận thông báo qua điện thoại</p>
+                                                        <b-form-checkbox class="float-right"  name="notify-checkbox" switch></b-form-checkbox>
+                                                    </b-list-group-item>
+                                                    <b-list-group-item>
+                                                        <p>[Backorder] Danh sách tên miền mới đưa vào đặt giá</p>
+                                                        <b-form-checkbox class="float-right"  name="notify-backorder-new" switch></b-form-checkbox>
+                                                    </b-list-group-item>
+                                                    <b-list-group-item>
+                                                        <p>[Backorder] Danh sách tên miền chốt phiên trong ngày</p>
+                                                        <b-form-checkbox class="float-right"  name="notify-backorder-sell" switch></b-form-checkbox>
+                                                    </b-list-group-item>
+                                                    <b-list-group-item>
+                                                        <p>[Sàn tên miền] Danh sách tên miền đăng bán hàng ngày</p>
+                                                        <b-form-checkbox class="float-right"  name="notify-sell-daily-stock" switch></b-form-checkbox>
+                                                    </b-list-group-item>
+                                                    <b-list-group-item>
+                                                        <p>[Sàn tên miền] Danh sách tên miền đăng mua hàng ngày</p>
+                                                        <b-form-checkbox class="float-right"  name="notify-buy-daily-stock" switch></b-form-checkbox>
+                                                    </b-list-group-item>
+                                                    <b-list-group-item>
+                                                        <p>[Backorder] Danh sách tên miền tự do chưa được đăng ký</p>
+                                                        <b-form-checkbox class="float-right"  name="notify-register-daily-stock" switch></b-form-checkbox>
+                                                    </b-list-group-item>
+                                                    
+                                                </b-list-group>
                                             </div>
-                                            <b-list-group>
-                                                <b-list-group-item>
-                                                    Nhận thông báo qua điện thoại
-                                                    <b-form-checkbox class="float-right"  name="notify-checkbox" switch></b-form-checkbox>
-                                                </b-list-group-item>
-                                                <b-list-group-item>
-                                                    [Backorder] Danh sách tên miền mới đưa vào đặt giá
-                                                    <b-form-checkbox class="float-right"  name="notify-backorder-new" switch></b-form-checkbox>
-                                                </b-list-group-item>
-                                                <b-list-group-item>
-                                                    [Backorder] Danh sách tên miền chốt phiên trong ngày
-                                                    <b-form-checkbox class="float-right"  name="notify-backorder-sell" switch></b-form-checkbox>
-                                                </b-list-group-item>
-                                                <b-list-group-item>
-                                                    [Sàn tên miền] Danh sách tên miền đăng bán hàng ngày
-                                                    <b-form-checkbox class="float-right"  name="notify-sell-daily-stock" switch></b-form-checkbox>
-                                                </b-list-group-item>
-                                                <b-list-group-item>
-                                                    [Sàn tên miền] Danh sách tên miền đăng mua hàng ngày
-                                                    <b-form-checkbox class="float-right"  name="notify-buy-daily-stock" switch></b-form-checkbox>
-                                                </b-list-group-item>
-                                                <b-list-group-item>
-                                                    [Backorder] Danh sách tên miền tự do chưa được đăng ký
-                                                    <b-form-checkbox class="float-right"  name="notify-register-daily-stock" switch></b-form-checkbox>
-                                                </b-list-group-item>
-                                                
-                                            </b-list-group>
-                                        </div>
+                                        </template>
                                     </b-card-text>
                                 </b-tab>
                                 <b-tab lazy>
@@ -492,7 +498,54 @@
 											Nạp quỹ
                                     </template>
                                     <b-card-text>
-                                        Nạp quỹ
+                                        <template>
+                                            <div class="information-user">
+                                                <div class="title-information">
+                                                    Nạp quỹ <br />
+                                                    <p>Nạp quỹ qua hình thức chuyển khoản ngân hàng Số dư: 1.000.000đ</p>
+                                                </div>
+                                                <b-container>
+                                                    <b-row>
+                                                        <b-col cols="12">
+                                                            <p class="mt-3">Quý khách vui lòng chuyển khoản theo nội dung <b>ACCxxxx</b> (đây là mã của khách hàng) tới Nhanhoa theo một trong các danh sách ngân hàng dưới đây. Khi chúng tôi nhận được tiền chuyển khoản của Quý khách sẽ tiến hành nạp quỹ vào hệ thống.</p>
+                                                        </b-col>
+                                                        <b-col v-for="item in list_bank" :key="item.id" cols="12" sm="4" md="4" lg="4">
+                                                            <b-card
+                                                                
+                                                                :img-src="item.bank_logo"
+                                                                :img-alt="item.bank_name"
+                                                                img-top
+                                                                tag="article"
+                                                                class="mb-2 item-payment"
+                                                            >
+                                                                <b-card-text>
+                                                                    <template>
+                                                                    <div class="">
+                                                                        
+                                                                            <div class="title-payment">
+                                                                                {{ item.bank_name }}
+                                                                            </div>
+                                                                            <p>
+                                                                                Chi nhánh: <strong> {{ item.bank_branch }}</strong>
+                                                                            </p>
+                                                                            <p>
+                                                                                Số tài khoản: <strong>{{ item.bank_code }}</strong>
+                                                                            </p>
+                                                                            <p>
+                                                                                Chủ tài khoản: <strong>Công ty TNHH phần mềm Nhân Hòa</strong>
+                                                                            </p>
+                                                                        </div>
+                                                                    </template>
+                                                                </b-card-text>
+                                                                <a href="#" class="c_b_s btn btn-primary"><b-icon icon="cash"></b-icon> Nạp ngay</a>
+                                                            </b-card>
+                                                        </b-col>
+                                                        
+
+                                                    </b-row>
+                                                </b-container>
+                                            </div>
+                                        </template>
                                     </b-card-text>
                                 </b-tab>
                                 
@@ -583,7 +636,7 @@
     </div>
 </template>
 <script>
-import { formatCurrency, formatNumber } from "~/utils/libs";
+import { formatCurrency, formatNumber } from "~/helpers/libs";
 import Vue from 'vue';
 import { validationMixin } from "vuelidate";
 import { required, minLength, email, maxLength } from "vuelidate/lib/validators";
@@ -625,7 +678,15 @@ export default {
                 phone: '',
                 email: '',
                 
-            }
+            },
+            list_bank:[
+                {id:1, bank_name:'Ngân hàng ACB', bank_code: "157775139", bank_logo:'https://nhanhoa.com/uploads/bank_logo/1377230283_acb.jpg', bank_branch:'Hà Nội'},
+                {id:2, bank_name:'Ngân hàng Techcombank', bank_code: "11110137258015", bank_logo:'https://nhanhoa.com/uploads/bank_logo/1395110447_techcom-bank.gif', bank_branch:'Hà Nội'},
+                {id:3, bank_name:'Ngân hàng Maritime Bank', bank_code: "03101010133663", bank_logo:'https://nhanhoa.com/uploads/bank_logo/1463555327_1453342778_1363589504_maritime-bank.gif', bank_branch:'Đống Đa'},
+                
+
+                
+            ]
         }
     },
     validations: {
@@ -681,7 +742,7 @@ export default {
             this.timeout = setTimeout(() => {
             this.clearTimeout()
             callback()
-            }, 3000)
+            }, 1000)
         },
         onHidden() {
             // Return focus to the button
@@ -713,7 +774,12 @@ export default {
                 return;
             }
 
-        }
+        },
+        async getDataTab(tab){
+            console.log(tab);
+
+        },
+        
     }
 }
 </script>

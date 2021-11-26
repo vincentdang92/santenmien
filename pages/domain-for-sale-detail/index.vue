@@ -123,7 +123,7 @@
 <script>
 import FAQ from "@/components/FAQ";
 import WhyUs from "@/components/WhyUs";
-import { formatCurrency, formatNumber } from "~/utils/libs";
+import { formatCurrency, formatNumber } from "~/helpers/libs";
 export default {
     components:{
 		FAQ,
