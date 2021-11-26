@@ -774,7 +774,12 @@ export default {
                 return;
             }
 
-        }
+        },
+        async getDataTab(tab){
+            console.log(tab);
+
+        },
+        
     }
 }
 </script>
