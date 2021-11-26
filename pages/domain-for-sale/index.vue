@@ -201,7 +201,7 @@
 <script>
   import Vue from 'vue';
   import RangeSlider from '@vueform/slider/dist/slider.vue2.js';
-  import { formatCurrency, formatNumber } from "~/utils/libs";
+  import { formatCurrency, formatNumber } from "~/helpers/libs";
   import FAQ from "@/components/FAQ";
   import WhyUs from "@/components/WhyUs";
   Vue.use(RangeSlider);  
