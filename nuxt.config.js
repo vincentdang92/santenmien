@@ -46,42 +46,42 @@ module.exports =  {
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'domain-for-sale-custom',
-        path: '/ten-mien-rao-ban.html',
+        path: '/ten-mien-rao-ban',
         component: resolve(__dirname, 'pages/domain-for-sale/index.vue')
       });
       routes.push({
         name: 'request-domain-custom',
-        path: '/mua-ten-mien.html',
+        path: '/mua-ten-mien',
         component: resolve(__dirname, 'pages/request-domain/index.vue')
       });
       routes.push({
         name: 'sell-domain-custom',
-        path: '/dang-ban-ten-mien.html',
+        path: '/dang-ban-ten-mien',
         component: resolve(__dirname, 'pages/sell-domain/index.vue')
       });
       routes.push({
-        name: 'chi-tiet-ten-mien.html',
-        path: '/chi-tiet-ten-mien.html',
-        component: resolve(__dirname, 'pages/domain-for-sale-detail/index.vue')
+        name: 'chi-tiet-ten-mien',
+        path: '/chi-tiet-ten-mien/:id?',
+        component: resolve(__dirname, 'pages/domain-for-sale/_id.vue')
       });
       routes.push({
         name: 'tai-khoan-custom',
-        path: '/tai-khoan.html',
+        path: '/tai-khoan',
         component: resolve(__dirname, 'pages/accounts/index.vue')
       });
       routes.push({
         name: 'dang-nhap',
-        path: '/dang-nhap.html',
+        path: '/dang-nhap',
         component: resolve(__dirname, 'pages/login/index.vue')
       });
       routes.push({
         name: 'dang-ky',
-        path: '/dang-ky.html',
+        path: '/dang-ky',
         component: resolve(__dirname, 'pages/register/index.vue')
       });
       routes.push({
         name: 'chinh-sach',
-        path: '/chinh-sach.html',
+        path: '/chinh-sach',
         component: resolve(__dirname, 'pages/policy/index.vue')
       });
       

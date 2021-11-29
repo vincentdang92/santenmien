@@ -149,7 +149,7 @@
                                    
                                     <template #cell(id)="row">
                                         
-                                        <nuxt-link class="btn btn-primary btn-sm text-white" :to="{ name: 'chi-tiet-ten-mien.html', params: { domainId: row.item.id }}"><b-icon icon="eye"></b-icon> chi tiết</nuxt-link>
+                                        <nuxt-link class="btn btn-primary btn-sm text-white" :to="`chi-tiet-ten-mien/${row.item.id}`"><b-icon icon="eye"></b-icon> chi tiết</nuxt-link>
                                         
                                     </template>
                                     <template #cell(start_price)="row">
@@ -269,13 +269,13 @@
             
         ],
         items: [
-          { domain: 'master-bo.com', year: 1, carreer:'FINANCE', backlink: 12, expired_date: '05/08/2021',start_price : 100000000,buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.' },
-          { domain: "forex101.com", year: 1, carreer:'FINANCE',  backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Công ty 1'  },
-          { domain: "shoponline.com", year: 1, carreer:'SHOPPING',  backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "playgame247.com", year: 1,carreer:'GAME', backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
-          { domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { id:1231, domain: 'master-bo.com', year: 1, carreer:'FINANCE', backlink: 12, expired_date: '05/08/2021',start_price : 100000000,buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.' },
+          { id:21331, domain: "forex101.com", year: 1, carreer:'FINANCE',  backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Công ty 1'  },
+          { id:3453, domain: "shoponline.com", year: 1, carreer:'SHOPPING',  backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { id:6783, domain: "playgame247.com", year: 1,carreer:'GAME', backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { id:3456,domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { id:123321, domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
+          { id:7890, domain: "master-bo.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           
           { id: 123123, domain: "123123.com", year: 1, backlink: 12, expired_date: '05/08/2021',start_price : "100000000",buy_price: "100000000", registrar:'Nhan Hoa Software Company Ltd.'  },
           

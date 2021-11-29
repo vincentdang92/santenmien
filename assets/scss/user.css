@@ -375,7 +375,11 @@ button.btn-dropdown-user svg {
 }
 
 .item-payment img {
-    }
+    width: 120px;
+    display: block;
+    margin: 10px auto;
+    max-height: 40px;
+}
 .information-user.deposit-funds .info-information>.row {
     margin: 0 -10px;
 }

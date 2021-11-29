@@ -123,10 +123,9 @@ button.btn-sell-domain-names {
 }
 
 .session-comment .item-comment .info-comment .comment-input button.btn.btn-submit {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: #038ffe;
+
+    float: right;
+    /* background: #038ffe; */
     padding: 0 30px;
     height: 42px;
     line-height: 42px;
@@ -151,10 +150,11 @@ button.btn-sell-domain-names {
 }
 .content-comment {
     min-height: 100px;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 14px; */
+    padding: 15px;
 }
 .session-comment {
     padding-bottom: 70px;
