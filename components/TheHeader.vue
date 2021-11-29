@@ -121,7 +121,7 @@
 									<b-nav-item-dropdown class="account_menu" v-if="isAuthenticated " right>
 										<!-- Using 'button-content' slot -->
 										<template #button-content>
-											<b-avatar badge  badge-variant="success" src="user.jpg"></b-avatar> Lê Thị Bé Na Na
+											<b-avatar badge  badge-variant="success" src="@/assets/images/user.jpg"></b-avatar> Lê Thị Bé Na Na
 										</template>
 										<b-dropdown-item href="/tai-khoan.html"><b-icon icon="gear"></b-icon> Thông tin cá nhân</b-dropdown-item>
 										<b-dropdown-item href="#" @click.prevent="handleLogout"><b-icon variant="danger" icon="power"></b-icon> Đăng xuất</b-dropdown-item>
@@ -136,16 +136,16 @@
 										<nuxt-link to="/">Trang chủ</nuxt-link>
 									</li>
 									<li>
-										<nuxt-link to="/ten-mien-rao-ban.html">Tên miền rao bán</nuxt-link>
+										<nuxt-link to="/ten-mien-rao-ban">Tên miền rao bán</nuxt-link>
 									</li>
 									<li>
-										<nuxt-link to="/mua-ten-mien.html">Tên miền muốn mua</nuxt-link>
+										<nuxt-link to="/mua-ten-mien">Tên miền muốn mua</nuxt-link>
 									</li>
 									<li>
 										<nuxt-link to="/">Cho thuê tên miền</nuxt-link>
 									</li>
 									<li>
-										<nuxt-link to="/chinh-sach.html">Chính sách</nuxt-link>
+										<nuxt-link to="/chinh-sach">Chính sách</nuxt-link>
 									</li>
 									
 								</ul>
@@ -168,10 +168,10 @@
 							<b-collapse id="nav-collapse1" is-nav>
 								<b-navbar-nav>
 									<b-nav-item to="/">Trang chủ</b-nav-item>
-									<b-nav-item to="/ten-mien-rao-ban.html">Tên miền rao bán</b-nav-item>
-									<b-nav-item href="/mua-ten-mien.html">Tên miền muốn mua</b-nav-item>
+									<b-nav-item to="/ten-mien-rao-ban">Tên miền rao bán</b-nav-item>
+									<b-nav-item to="/mua-ten-mien">Tên miền muốn mua</b-nav-item>
 									<b-nav-item style="cursor:pointer">Cho thuê tên miền</b-nav-item>
-									<b-nav-item href="/chinh-sach.html">Chính sách</b-nav-item>
+									<b-nav-item to="/chinh-sach">Chính sách</b-nav-item>
 									<b-nav-item href="#">Hướng dẫn giao dịch</b-nav-item>
 									<!-- <b-nav-item href="#">Đăng nhập</b-nav-item>
 									<b-nav-item href="#">Đăng ký</b-nav-item> -->

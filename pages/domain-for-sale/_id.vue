@@ -7,7 +7,7 @@
                     <b-col sm="6" cols="12">
                         <div class="item-details-domain-names details-domain-names-left">
 							<div class="title-item-details-domain-names">
-								Thông tin tên miền {{ params.domainId }}
+								Thông tin tên miền {{ params.id }}
 							</div>
 							<div class="info-details-domain-names">
 								<p class="name">
@@ -195,6 +195,9 @@ export default {
 	},
 	created() {
 		this.params = this.$route.params;
+        if(this.params.id == undefined){
+            this.$router.push('/ten-mien-rao-ban');
+        }
 		console.log(this.$route)
 	
 	},

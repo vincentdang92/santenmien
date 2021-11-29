@@ -509,14 +509,14 @@
                                                         <b-col cols="12">
                                                             <p class="mt-3">Quý khách vui lòng chuyển khoản theo nội dung <b>ACCxxxx</b> (đây là mã của khách hàng) tới Nhanhoa theo một trong các danh sách ngân hàng dưới đây. Khi chúng tôi nhận được tiền chuyển khoản của Quý khách sẽ tiến hành nạp quỹ vào hệ thống.</p>
                                                         </b-col>
-                                                        <b-col v-for="item in list_bank" :key="item.id" cols="12" sm="4" md="4" lg="4">
+                                                        <b-col v-for="item in list_bank" :key="item.id" cols="12" sm="4" md="4" lg="4" class="mb-3">
                                                             <b-card
                                                                 
                                                                 :img-src="item.bank_logo"
                                                                 :img-alt="item.bank_name"
                                                                 img-top
                                                                 tag="article"
-                                                                class="mb-2 item-payment"
+                                                                class=" item-payment"
                                                             >
                                                                 <b-card-text>
                                                                     <template>
@@ -537,7 +537,7 @@
                                                                         </div>
                                                                     </template>
                                                                 </b-card-text>
-                                                                <a href="#" class="c_b_s btn btn-primary"><b-icon icon="cash"></b-icon> Nạp ngay</a>
+                                                                <a href="#" class="c_b_s btn btn-primary float-right"><b-icon icon="cash"></b-icon> Nạp ngay</a>
                                                             </b-card>
                                                         </b-col>
                                                         
@@ -680,11 +680,12 @@ export default {
                 
             },
             list_bank:[
-                {id:1, bank_name:'Ngân hàng ACB', bank_code: "157775139", bank_logo:'https://nhanhoa.com/uploads/bank_logo/1377230283_acb.jpg', bank_branch:'Hà Nội'},
-                {id:2, bank_name:'Ngân hàng Techcombank', bank_code: "11110137258015", bank_logo:'https://nhanhoa.com/uploads/bank_logo/1395110447_techcom-bank.gif', bank_branch:'Hà Nội'},
-                {id:3, bank_name:'Ngân hàng Maritime Bank', bank_code: "03101010133663", bank_logo:'https://nhanhoa.com/uploads/bank_logo/1463555327_1453342778_1363589504_maritime-bank.gif', bank_branch:'Đống Đa'},
-                
-
+                {id:1, bank_name:'Ngân hàng ACB', bank_code: "157775139", bank_logo:'https://upload.wikimedia.org/wikipedia/vi/8/85/ACB_Logo.png', bank_branch:'Hà Nội'},
+                {id:2, bank_name:'Ngân hàng Techcombank', bank_code: "11110137258015", bank_logo:'https://upload.wikimedia.org/wikipedia/vi/7/7c/Techcombank_logo.png', bank_branch:'Hà Nội'},
+                {id:3, bank_name:'Ngân hàng Maritime Bank', bank_code: "03101010133663", bank_logo:'https://vaytienonline.vn/wp-content/uploads/2020/07/msb-logo.png', bank_branch:'Đống Đa'},
+                {id:4, bank_name:'Ngân hàng Maritime Bank', bank_code: "03101010133663", bank_logo:'https://vaytienonline.vn/wp-content/uploads/2020/07/msb-logo.png', bank_branch:'Đống Đa'},
+                {id:5, bank_name:'Ngân hàng Maritime Bank', bank_code: "03101010133663", bank_logo:'https://vaytienonline.vn/wp-content/uploads/2020/07/msb-logo.png', bank_branch:'Đống Đa'},
+                {id:6, bank_name:'Ngân hàng Maritime Bank', bank_code: "03101010133663", bank_logo:'https://vaytienonline.vn/wp-content/uploads/2020/07/msb-logo.png', bank_branch:'Đống Đa'},
                 
             ]
         }
