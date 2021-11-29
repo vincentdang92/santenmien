@@ -149,7 +149,7 @@
                                    
                                     <template #cell(id)="row">
                                         
-                                        <nuxt-link class="btn btn-primary btn-sm text-white" :to="`chi-tiet-ten-mien/${row.item.id}`"><b-icon icon="eye"></b-icon> chi tiết</nuxt-link>
+                                        <nuxt-link class="btn btn-primary btn-sm text-white" :to="`ten-mien-rao-ban/${row.item.id}`"><b-icon icon="eye"></b-icon> chi tiết</nuxt-link>
                                         
                                     </template>
                                     <template #cell(start_price)="row">
