@@ -14,7 +14,7 @@
             </div>
             </b-col>
             <b-col cols="12" sm="7">
-              <div id="accordion" class="accordion" role="tablist">
+              <div id="accordion" class="accordion faq_section" role="tablist">
                 <b-card no-body class="mb-1">
                   <b-card-header header-tag="header" class="p-1 " role="tab">
                     <b-button  class="text-left" block v-b-toggle.accordion-1 variant="default">Tôi có rất nhiều tên miền muốn đăng bán, làm sao để đăng lên nhanh nhất? <b-icon class="when-closed float-right"  icon="plus-circle-fill"></b-icon> <b-icon class="when-open float-right"  icon="dash-circle-fill"></b-icon></b-button>
@@ -30,7 +30,7 @@
                 </b-card>
                 <b-card no-body class="mb-1">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button class="text-left" block v-b-toggle.accordion-2 variant="default">Tên miền tôi đăng bán (mua) được giới thiệu qua phương thức nào <b-icon class="when-open float-right"  icon="plus-circle-fill"></b-icon> <b-icon class="when-closed float-right"  icon="dash-circle-fill"></b-icon></b-button>
+                    <b-button class="text-left" block v-b-toggle.accordion-2 variant="default">Tên miền tôi đăng bán (mua) được giới thiệu qua phương thức nào <b-icon class="when-closed float-right"  icon="plus-circle-fill"></b-icon> <b-icon class="when-open float-right"  icon="dash-circle-fill"></b-icon></b-button>
                   </b-card-header>
                   <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
                     <b-card-body>
@@ -42,7 +42,7 @@
                 </b-card>
                 <b-card no-body class="mb-1">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button class="text-left" block v-b-toggle.accordion-3 variant="default">Tại sao tôi không thăng phiên đặt giá, khi tôi đặt giá cao nhất <b-icon class="when-open float-right"  icon="plus-circle-fill"></b-icon> <b-icon class="when-closed float-right"  icon="dash-circle-fill"></b-icon></b-button>
+                    <b-button class="text-left" block v-b-toggle.accordion-3 variant="default">Tại sao tôi không thăng phiên đặt giá, khi tôi đặt giá cao nhất <b-icon class="when-closed float-right"  icon="plus-circle-fill"></b-icon> <b-icon class="when-open float-right"  icon="dash-circle-fill"></b-icon></b-button>
                   </b-card-header>
                   <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
                     <b-card-body>

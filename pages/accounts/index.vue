@@ -137,9 +137,9 @@
                                                     </template>
                                                     
                                                     
-
+            
                                                 </b-table>
-                                                <div class="custom_paging">
+                                                <div class="custom_paging mt-3">
                                                     <b-pagination
                                                         v-model="currentPage"
                                                         :total-rows="rows"
@@ -230,7 +230,8 @@
                                                     
 
                                                 </b-table>
-                                                <div class="custom_paging">
+                                                
+                                                <div class="custom_paging mt-3">
                                                     <b-pagination
                                                         v-model="currentPage"
                                                         :total-rows="rows"

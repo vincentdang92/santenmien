@@ -617,6 +617,10 @@ h1, h2, h3, h4, h5{
         
     }
 }
+.faq_section button {
+    display: flex;
+    justify-content: space-between;
+}
 @keyframes DropDownSlide {
     100% {
       transform: translateY(0);
@@ -673,9 +677,21 @@ h1, h2, h3, h4, h5{
         border-bottom-right-radius: 0;
     }
 }
+.btn-update-information-follow{
+    display: inline-block;
+    justify-content: start;
+    
+}
 @media(max-width:768px){
-    .dropdown-menu-right{
-        
+    .btn-update-information-follow{
+        display:flex;
+        justify-content: space-between;
+    }
+    .btn-update-information-follow>div>a{
+        padding: 0 10px;
+    }
+    .btn-update-information-follow>div{
+        margin-right: 0;
     }
     .title-com-vn {
         color: #fff;
@@ -782,6 +798,7 @@ h1, h2, h3, h4, h5{
     }
     .information-user table td .badge{
         padding: 8px 14px;
+        width: 110px;
     }
     .tab_account{
         .col-auto{

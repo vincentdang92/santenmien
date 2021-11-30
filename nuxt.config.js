@@ -46,17 +46,23 @@ module.exports =  {
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'domain-for-sale-custom',
-        path: '/ten-mien-rao-ban',
+        path: '/ten-mien-rao-ban/',
         component: resolve(__dirname, 'pages/domain-for-sale/index.vue')
       });
+       routes.push({
+        name: 'domain-for-sale-detail-custom',
+        path: '/ten-mien-rao-ban/:id?',
+        component: resolve(__dirname, 'pages/domain-for-sale/_id.vue')
+      });
+      
       routes.push({
         name: 'request-domain-custom',
-        path: '/mua-ten-mien',
+        path: '/mua-ten-mien/',
         component: resolve(__dirname, 'pages/request-domain/index.vue')
       });
       routes.push({
         name: 'sell-domain-custom',
-        path: '/dang-ban-ten-mien',
+        path: '/dang-ban-ten-mien/',
         component: resolve(__dirname, 'pages/sell-domain/index.vue')
       });
       routes.push({
@@ -66,7 +72,7 @@ module.exports =  {
       });
       routes.push({
         name: 'tai-khoan-custom',
-        path: '/tai-khoan',
+        path: '/tai-khoan/',
         component: resolve(__dirname, 'pages/accounts/index.vue')
       });
       routes.push({
@@ -81,7 +87,7 @@ module.exports =  {
       });
       routes.push({
         name: 'chinh-sach',
-        path: '/chinh-sach',
+        path: '/chinh-sach/',
         component: resolve(__dirname, 'pages/policy/index.vue')
       });
       

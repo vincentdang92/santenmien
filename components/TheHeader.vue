@@ -73,10 +73,10 @@
 							<b-collapse id="nav-collapse" is-nav>
 								<!-- Right aligned nav items -->
 								<b-navbar-nav class="ml-auto ">
-									<b-nav-item v-if="!isAuthenticated " class="btn_top_menu register c_b_s" href="/">
+									<b-nav-item v-if="!isAuthenticated " class="btn_top_menu register c_b_s" :href="`${$config.baseURL}/dang-ky.html`">
 										<b-icon icon="person-circle"></b-icon> Đăng ký
 									</b-nav-item>
-									<b-nav-item v-if="!isAuthenticated " class="btn_top_menu c_b_s" href="/dang-nhap.html">
+									<b-nav-item v-if="!isAuthenticated " class="btn_top_menu c_b_s" href="" @click.prevent="handleLogin">
 										<b-icon icon="person-bounding-box"></b-icon> Đăng nhập
 									</b-nav-item>
 									
@@ -123,7 +123,7 @@
 										<template #button-content>
 											<b-avatar badge  badge-variant="success" src="@/assets/images/user.jpg"></b-avatar> Lê Thị Bé Na Na
 										</template>
-										<b-dropdown-item href="/tai-khoan.html"><b-icon icon="gear"></b-icon> Thông tin cá nhân</b-dropdown-item>
+										<b-dropdown-item href="/tai-khoan/"><b-icon icon="gear"></b-icon> Thông tin cá nhân</b-dropdown-item>
 										<b-dropdown-item href="#" @click.prevent="handleLogout"><b-icon variant="danger" icon="power"></b-icon> Đăng xuất</b-dropdown-item>
 									</b-nav-item-dropdown>
 								</b-navbar-nav>
