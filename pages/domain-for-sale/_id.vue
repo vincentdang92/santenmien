@@ -135,7 +135,22 @@
 									</div>
 								</div>
 							</div>
-						
+							<div v-if="0" class="load_more_comment ">
+								
+								<b-button  style="margin:0 auto; display:block;" variant="primary">
+									<b-spinner v-if="showLoading" small ></b-spinner>
+										{{ titleLoading }}
+								</b-button>
+							</div>
+							<div class="comment_pagination overflow-auto d-flex justify-content-end">
+								<b-pagination
+								v-model="currentPage"
+								:total-rows="rows"
+								:per-page="perPage"
+								
+								size="sm"
+								></b-pagination>
+							</div>
 						</div>
 						<div class="comment-input">
 
@@ -176,6 +191,8 @@ export default {
 		return{
 			params: '',
 			comment_text:'',
+			showLoading: false,
+			titleLoading: 'Đọc tiếp',
 			items: [
 				{ id: 1,domain: 'diendandoanhnhan.net', year: 11, backlink: 100, da: 123123, price:10000000 },
 				{ id: 2,domain: 'thebeauty.vn', year: 5, backlink: 100, da: 123123, price:50000000 },
@@ -190,7 +207,11 @@ export default {
 				{ key: 'price', label: 'Giá khởi điểm' },
 				
 			
-			]
+			],
+			perPage: 3,
+        	currentPage: 1,
+			rows: 100,
+			
 		}
 	},
 	created() {

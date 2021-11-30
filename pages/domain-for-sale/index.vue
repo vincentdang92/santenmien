@@ -104,7 +104,7 @@
                                     </b-col>
                                     <b-col  sm="6" xs="12">
                                         <div class="btn-submit domain-names c_b_s">
-                                          <nuxt-link class="" to="/dang-ban-ten-mien.html">Đăng bán tên miền</nuxt-link>
+                                          <nuxt-link class="" to="/dang-ban-ten-mien">Đăng bán tên miền</nuxt-link>
                                         </div>
                                     </b-col>
                                     <!-- <b-col cols="12"> 

@@ -617,6 +617,10 @@ h1, h2, h3, h4, h5{
         
     }
 }
+.faq_section button {
+    display: flex;
+    justify-content: space-between;
+}
 @keyframes DropDownSlide {
     100% {
       transform: translateY(0);
@@ -674,12 +678,13 @@ h1, h2, h3, h4, h5{
     }
 }
 .btn-update-information-follow{
-    display: flex;
+    display: inline-block;
     justify-content: start;
     
 }
 @media(max-width:768px){
     .btn-update-information-follow{
+        display:flex;
         justify-content: space-between;
     }
     .btn-update-information-follow>div>a{

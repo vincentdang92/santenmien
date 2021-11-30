@@ -260,7 +260,7 @@ dl, ol, ul {
 .box-domain, .session-details-domain-names .item-details-domain-names, .item-buy-domain-name, .information-user {
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
     border-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: #fff;
 }
 
@@ -272,6 +272,8 @@ dl, ol, ul {
     margin-bottom: 0;
     background: #038ffe;
     color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .box-domain .info-domain ul li {
